@@ -8,7 +8,7 @@
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "start-dev": "npm run build-client-watch & nodemon server/index.js",
-    "heroku-postbuild" : "npm install && cd client && npm install --only-dev && npm install && npm run build"
+    "heroku-postbuild" : "npm install && node server/index.js"
   },
   "author": "",
   "license": "ISC",
