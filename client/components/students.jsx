@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-function Students(props) {
+class Students extends React.Component {
+    constructor(props) {
+        super(props);
+       
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-    return (
-        <div>
-            <button> Students Button </button>
-        </div>
-    );
+    handleClick() {
+        var url = '/api/students';
+         fetch(url).then(function(response) {
+            response.text().then(function(text) {
+            alert(text);
+         }).catch(err => alert(err));
+        })
+
+    }
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleClick}> Students Button </button>
+
+            </div>
+        );
+    }
 }
 
 module.exports = Students;
