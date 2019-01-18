@@ -5,6 +5,8 @@ const { db } = require('./models');
 const path = require('path');
 const port = process.env.PORT || 3000;
 
+// Hello world
+
 
 app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 app.use('/api', require('./api'));
