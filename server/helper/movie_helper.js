@@ -16,7 +16,7 @@ class MovieApiHelper {
             category : "trending/",
             type: "movie/",
             timeLength: "day?",
-            api_key: `api_key=${this.MOVIE_DATABASE_API_KEY_LOCAL}`,
+            api_key: `api_key=${process.env.MOVIE_DATABASE_API_KEY_LOCAL}`,
         }
     }
 

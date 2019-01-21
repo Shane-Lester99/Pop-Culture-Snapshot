@@ -7,7 +7,7 @@ class YoutubeApiHelper {
             base : "https://www.googleapis.com/youtube/v3/search?",
             part : "part=snippet",
             maxResults: "maxResults=10",
-            api_key: `key=${this.YOUTUBE_API_KEY_LOCAL}`,
+            api_key: `key=${process.env.YOUTUBE_API_KEY_LOCAL}`,
             pushlishedAfter: `publishedAfter=${this.getPrevDate()}`
         }
     }
