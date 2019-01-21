@@ -1,20 +1,18 @@
 const axios =  require('axios');
 
 //Generate API strings:
-
+const YOUTUBE_API_KEY_LOCAL="AIzaSyCogSg0nmihx-MTux2wr_NUSnbJpQdE69"
 function getPrevDate() {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     return date.toISOString();
 }
 
-//const YOUTUBE_API_KEY="AIzaSyCogSg0nmihx-MTux2wr_NUSnbJpQdE69";
-
 const apiParams = {
     base : "https://www.googleapis.com/youtube/v3/search?",
     part : "part=snippet",
     maxResults: "maxResults=10",
-    api_key: `key=${process.env.YOUTUBE_API_KEY_LOCAL}`,
+    api_key: `key=${YOUTUBE_API_KEY_LOCAL}`,
     pushlishedAfter: `publishedAfter=${getPrevDate()}`
 }
 
