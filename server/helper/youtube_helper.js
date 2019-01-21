@@ -2,7 +2,7 @@ const axios =  require('axios');
 
 class YoutubeApiHelper {
     constructor() {
-        this.YOUTUBE_API_KEY_LOCAL="AIzaSyCogSg0nmihx-MTux2wr_NUSnbJpQdE69";
+
         this.apiParams = {
             base : "https://www.googleapis.com/youtube/v3/search?",
             part : "part=snippet",

@@ -1,16 +1,16 @@
 const axios =  require('axios');
 
-//https://api.themoviedb.org/3/trending/movie/day?api_key=a40e69006cf3bb7c9fc1ab0717bf208a
+
 
 //console.log(process.env.MOVIE_DATABASE_API);
 //console.log(process.env.YOUTUBE_API_KEY_LOCAL);
 
-//http://image.tmdb.org/t/p/w185//nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg
+
 
 
 class MovieApiHelper {
     constructor() {
-        this.MOVIE_DATABASE_API_KEY_LOCAL="a40e69006cf3bb7c9fc1ab0717bf208a";
+        
         this.apiParams = {
             base : "https://api.themoviedb.org/3/",
             category : "trending/",
