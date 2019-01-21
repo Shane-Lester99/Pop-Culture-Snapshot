@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { UserTable } = require('../models');
 router.get('/', async (req, res, next) => {
     try {
-        var users = await User.findAll()
+        var users = await UserTable.findAll()
         .then ((rows) => {
             console.log(rows);
             res.status(200).send(rows);
@@ -19,10 +19,12 @@ router.get('/', async (req, res, next) => {
 
 // TODO: Pass in as request body, not as query string!
 router.post('/', async (req, res, next) => {
-    let { accountName, userPhoto, description, password} = req.query;
+    //console.log(req.body);
+    
+    let { accountName, userPhoto, description, password} = req.body;
     //console.log(firstName, lastName, email, imageUrl, gpa);
     try {   
-        await User.create({
+        await UserTable.create({
             accountName,
             userPhoto, 
             description,
@@ -32,7 +34,7 @@ router.post('/', async (req, res, next) => {
             res.status(200).send("Success");
          })
         .catch( (err) => {
-            res.status(500).send("Server error");
+            res.status(405).send("Request rejected");
          });
     }
     catch(err) {

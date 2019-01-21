@@ -1,7 +1,7 @@
 const db = require("./db");
 const Sequelize = require('sequelize');
 
-const User = db.define('User', {
+const User = db.define('user', {
     accountName: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -10,7 +10,7 @@ const User = db.define('User', {
     userPhoto : {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: 'server/images/default_user.svg',
+        defaultValue: 'server/images/default_user_icon.svg',
     },
     description : {
         type: Sequelize.STRING,
@@ -24,6 +24,6 @@ const User = db.define('User', {
         type: Sequelize.STRING,
         allowNull: false
     }
-});
+}, {timestamps: false});
 
 module.exports = User;
