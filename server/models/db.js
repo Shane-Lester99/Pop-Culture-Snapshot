@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 
 let db;
 
+
 if (process.env.DATABASE_LOGIN) { 
     console.log('USING DEVELOPERS DB');
     db = new Sequelize(process.env.DATABASE_LOGIN);
