@@ -1,9 +1,11 @@
 export const CLICKBOX = "CLICKBOX";
 export const CLICKNAV = "CLICKNAV";
+export const CLOSEMODAL = "CLOSEMODAL"
 export const CLICKSUBMIT ="CLICKSUMBIT";
 
 
 export const clickBoxFunct = (display, payload) => {
+  console.log("Clicked");
     return {
         type: CLICKBOX,
         display,
@@ -24,4 +26,10 @@ export const clickSubmitFunct = (userId,userData) => {
         userId,
         userData,
     }
+}
+
+export const closeModalFunct = () => {
+  return {
+    type: CLOSEMODAL,
+  }
 }

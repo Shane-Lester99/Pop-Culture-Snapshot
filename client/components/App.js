@@ -3,10 +3,11 @@ import Daily from './Daily';
 import {connect} from 'react-redux';
 import Navbar from './Navbar';
 import Login from './Login';
+import Modal from './Modal';
 
 
 class AppComp extends React.Component {
-  
+
   render() {
     // save in a variable the result of a ternary expression
     const display = () => {
@@ -19,12 +20,22 @@ class AppComp extends React.Component {
           return <Daily />
       }
     }
+    const showModal = () => {
+      if(this.props.showModal === true)
+        return <Modal />
+      else {
+        return <div>Modal Hidden</div>
+      }
+    }
     return(
-      <div>
+      <div className="site-wrapper">
         <Navbar />
         {
           display()
-        }   
+        }
+        {
+          showModal()
+        }
       </div>
     );
   }
@@ -32,7 +43,8 @@ class AppComp extends React.Component {
 
 const mapStatetoProps = (state,ownProps) => {
   return {
-    display: state.display
+    display: state.display,
+    showModal: state.showModal
   }
 }
 

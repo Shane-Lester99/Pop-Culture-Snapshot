@@ -1,4 +1,4 @@
-import  { CLICKBOX, CLICKNAV, CLICKSUBMIT} from "../actions";
+import  { CLICKBOX, CLICKNAV, CLICKSUBMIT, CLOSEMODAL} from "../actions";
 
 const d = {
 	dataTv : [ { title: "Marvel's The Punisher",
@@ -121,7 +121,7 @@ dataMovie : [ { title: 'IO',
      'A brutal mugging leaves Grey Trace paralyzed in the hospital and his beloved wife dead. A billionaire inventor soon offers Trace a cure — an artificial intelligence implant called STEM that will enhance his body. Now able to walk, Grey finds that he also has superhuman strength and agility — skills he uses to seek revenge against the thugs who destroyed his life.',
     voteScore: 7.4,
     releaseDate: '2018-06-01' } ],
-  dataYoutube : 
+  dataYoutube :
   [
     {
         title: "hello world",
@@ -136,13 +136,13 @@ dataMovie : [ { title: 'IO',
 
 const initialState = {
   display: "daily",
-  showModel: false,
+  showModal: false,
   loggedIn: false,
   userId: 0,
   data: d,
   userData: {},
-  modelData: {},
-  modelDiplay: ''
+  modalData: {},
+  modalDiplay: ''
 };
 
 
@@ -151,10 +151,10 @@ export default (state = initialState, action) => {
     case CLICKBOX:
       return Object.assign(
         {},
-        state, 
-        state.showModel = !state.showModel,
-        state.modelData = action.payload,
-        state.modelDisplay = action.display
+        state,
+        state.showModal = !state.showModal,
+        state.modalData = action.payload,
+        state.modalDisplay = action.display
       )
     case CLICKNAV:
       return Object.assign(
@@ -170,6 +170,12 @@ export default (state = initialState, action) => {
         state.userData = action.userData,
         state.loggedIn = true
       )
+		case CLOSEMODAL:
+			return Object.assign(
+				{},
+				state,
+				state.showModal = false
+			)
     default:
       return state;
   }

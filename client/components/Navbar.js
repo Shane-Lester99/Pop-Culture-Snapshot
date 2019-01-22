@@ -9,17 +9,23 @@ class NavbarComp extends React.Component {
 
         return(
             <div>
-                <h1>Snapshot</h1>
-                <button onClick={() => this.props.clickNav('daily')}>Daily</button>
-                <button onClick={() => this.props.clickNav('login')}>Login</button>
-                <button onClick={
-                    () => {
-                        if(this.props.loggedIn)
-                            this.props.clickNav('page')
-                        else
-                            this.props.clickNav('login')
-                    }
-                }>My Page</button>
+                <header id="header-wrap">
+                  <nav id="primary-menu">
+                    <span className="logo">PopSnapShot</span>
+                    <ul>
+                      <button onClick={() => this.props.clickNav('daily')}>Snap shot</button>
+                      <button onClick={() => this.props.clickNav('login')}>Login</button>
+                      <li onClick={
+                          () => {
+                              if(this.props.loggedIn)
+                                  this.props.clickNav('page')
+                              else
+                                  this.props.clickNav('login')
+                          }
+                      }>Login</li>
+                    </ul>
+                  </nav>
+                </header>
             </div>
         );
     }
@@ -42,6 +48,3 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
 
 const Navbar = connect(mapStatetoProps,mapDispatchtoProps)(NavbarComp);
 export default Navbar;
-
-
-
