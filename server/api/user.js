@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserTable } = require('../models');
+const { UserTable, UserFavTrendTable } = require('../models');
 router.get('/', async (req, res, next) => {
     try {
         var users = await UserTable.findAll()
@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-// TODO: Pass in as request body, not as query string!
+
 router.post('/', async (req, res, next) => {
     //console.log(req.body);
     
