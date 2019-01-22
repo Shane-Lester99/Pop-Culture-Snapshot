@@ -6,17 +6,18 @@ const { db } = require('./models');
 const path = require('path');
 const port = process.env.PORT || 3000;
 const todaysData = require('./initializer.js') 
-//app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
-//app.use(body_parser.json());
-//app.use('/api', require('./api'));
+app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
+app.use(body_parser.json());
+app.use('/api', require('./api'));
 
-db.sync({force: true}).then( () => {
-    /*console.log("DB synced!")*/
-     todaysData();
-    //console.log("DB synced!");
+db.sync({force: true}).then( async () => {
+    console.log("DB synced!")
+     await todaysData();
+    console.log("Data has been collected for todays trends!")
+    
 }); 
 
 
-/*app.listen(port, () => {
+app.listen(port, () => {
     console.log(`App is listening on port ${port}`); 
-});*/
+});
