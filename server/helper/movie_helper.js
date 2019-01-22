@@ -28,7 +28,7 @@ class MovieApiHelper {
         });
        
         // Call API
-        axios.get(api_call)
+        return axios.get(api_call)
         .then(function (response) {
             let results = response.data.results;
             const movieList = [];

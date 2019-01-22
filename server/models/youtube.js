@@ -9,7 +9,8 @@ const Youtube = db.define('youtube', {
         defaultValue: 'server/images/default_youtube_icon.svg',
         allowNull: false
     },
-    description: Sequelize.STRING
+    description: Sequelize.STRING,
+    date: Sequelize.DATEONLY
 }, {timestamps: false});
 
 module.exports = Youtube;
