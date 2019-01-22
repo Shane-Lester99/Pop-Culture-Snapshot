@@ -44,6 +44,7 @@ class MovieApiHelper {
                     overview,
                     voteScore,
                     releaseDate,
+                    date: new Date()
                 };
                 movieList.push(newMovie);
             }

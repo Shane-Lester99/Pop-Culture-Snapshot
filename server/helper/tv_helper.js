@@ -41,7 +41,7 @@ class TvApiHelper {
                     overview,
                     voteScore,
                     releaseDate,
-                    //date : new Date()
+                    date : new Date()
                 };
                 tvList.push(tvObj);
             }
