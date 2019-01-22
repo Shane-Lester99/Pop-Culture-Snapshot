@@ -117,7 +117,8 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   display: flex;
   float: right;
 }
-#primary-menu ul li {
+#primary-menu ul li,
+#primary-menu button {
   margin: 8px;
   padding: 4px 8px;
   list-style: none;
@@ -126,6 +127,12 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   /* background: #717589; */
   float: right;
   color: #888;
+}
+
+#primary-menu button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
 }
 
 /* ----------------------------------------------------------------

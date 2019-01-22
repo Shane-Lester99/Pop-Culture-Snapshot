@@ -15,14 +15,14 @@ class NavbarComp extends React.Component {
                     <ul>
                       <button onClick={() => this.props.clickNav('daily')}>Snap shot</button>
                       <button onClick={() => this.props.clickNav('login')}>Login</button>
-                      <li onClick={
+                      <button onClick={
                           () => {
                               if(this.props.loggedIn)
                                   this.props.clickNav('page')
                               else
                                   this.props.clickNav('login')
                           }
-                      }>Login</li>
+                      }>Login</button>
                     </ul>
                   </nav>
                 </header>
