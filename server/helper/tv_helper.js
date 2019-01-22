@@ -1,3 +1,4 @@
+
 const axios =  require('axios');
 
 
@@ -22,12 +23,9 @@ class TvApiHelper {
         // Creates api string from above object
         Object.entries(this.apiParams).forEach( (entry) => {
             api_call += entry[1];
-        });
-        console.log(api_call);
-
-       
+        }); 
         // Call API
-        axios.get(api_call)
+        return axios.get(api_call)
         .then(function (response) {
             const results = response.data.results;
             const tvList = [];
@@ -42,20 +40,28 @@ class TvApiHelper {
                     posterPath,
                     overview,
                     voteScore,
-                    releaseDate
+                    releaseDate,
+                    date : new Date()
                 };
                 tvList.push(tvObj);
             }
             //console.log(tvList);
+            console.log("NO ERROR");
             return tvList;
-            
         })
         .catch(function (error) {
-            //console.log(error);
+            console.log(error);
             return undefined;
         });
     }
 }
 
+/*const x = new TvApiHelper()
+
+x.callApiRetrieveData()
+.then( (data) => {
+    console.log(data);
+})
+*/
 module.exports = new TvApiHelper();
 

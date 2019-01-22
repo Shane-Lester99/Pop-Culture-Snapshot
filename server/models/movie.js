@@ -10,7 +10,8 @@ const Movie = db.define('movie', {
         defaultValue: 'server/images/default_youtube_icon.svg',
         allowNull: false
     },
-    overview: Sequelize.STRING
+    overview: Sequelize.TEXT,
+    date: Sequelize.DATEONLY
 }, {timestamps: false});
 
 module.exports = Movie;

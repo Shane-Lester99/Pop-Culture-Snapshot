@@ -2,15 +2,15 @@ const db = require("./db");
 const Sequelize = require('sequelize');
 
 const Tv = db.define('tv', {
-    title: Sequelize.STRING,
-    posterPath : Sequelize.STRING,
+    title: Sequelize.STRING, 
     voteScore : Sequelize.DOUBLE,
-    thumbnail : {
+    posterPath : {
         type: Sequelize.STRING,
-        defaultValue: 'server/images/default_youtube_icon.svg',
+        defaultValue: 'server/images/default_tv_icon.svg',
         allowNull: false
     },
-    overview: Sequelize.STRING
+    overview: Sequelize.TEXT,
+    date: Sequelize.DATEONLY
 }, {timestamps : false});
 
 module.exports = Tv;
