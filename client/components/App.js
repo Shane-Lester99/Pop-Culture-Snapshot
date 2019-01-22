@@ -23,9 +23,6 @@ class AppComp extends React.Component {
     const showModal = () => {
       if(this.props.showModal === true)
         return <Modal />
-      else {
-        return <div>Modal Hidden</div>
-      }
     }
     return(
       <div className="site-wrapper">
