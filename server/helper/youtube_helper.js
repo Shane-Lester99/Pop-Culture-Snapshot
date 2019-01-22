@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios =  require('axios');
 
 class YoutubeApiHelper {
@@ -26,12 +27,12 @@ class YoutubeApiHelper {
         });
         api_call = api_call.slice(0,-1);
         // Call API
-        axios.get(api_call)
+        return axios.get(api_call)
         .then(function (response) {
-            items = response.data.items;
+            const items = response.data.items;
 
             var youtubeObjList = [];
-
+            
             items.forEach( (item) => {
                 const title = item.snippet.title;
                 const channelId = item.snippet.channelId;
@@ -43,16 +44,19 @@ class YoutubeApiHelper {
                     channelId,
                     thumbnail,
                     vidId,
-                    channelTitle
+                    channelTitle,
+                    date: new Date()
                 };
-                console.log(newYoutubeObj);
-                youtubeObjList.push(newYoutubeObj);
+                if (newYoutubeObj.vidId && youtubeObjList.length < 10) {
+                    console.log(newYoutubeObj);
+                    youtubeObjList.push(newYoutubeObj);
+                }
             });
-            //console.log(youtubeObjList);
+//            console.log(youtubeObjList);
             return youtubeObjList;
         })
         .catch(function (error) {
-            //console.log(error);
+//            console.log(error);
             return undefined;
         });
     }
@@ -60,6 +64,14 @@ class YoutubeApiHelper {
 
 //Generate API strings:
 
+/*
+const x = new YoutubeApiHelper()
+
+x.callApiRetrieveData()
+.then( (data) => {
+    console.log(data);
+})
+*/
 
 module.exports  = new YoutubeApiHelper();
 //console.log(x.callApiRetrieveData());

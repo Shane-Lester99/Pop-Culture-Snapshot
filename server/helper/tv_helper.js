@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const axios =  require('axios');
 
 
@@ -61,7 +61,7 @@ class TvApiHelper {
 x.callApiRetrieveData()
 .then( (data) => {
     console.log(data);
-})*/
-
+})
+*/
 module.exports = new TvApiHelper();
 

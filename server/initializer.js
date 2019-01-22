@@ -1,10 +1,10 @@
 const MovieApiHelper  =  require('./helper/movie_helper.js');
 const TvApiHelper  = require('./helper/tv_helper.js');
 const YoutubeApiHelper = require('./helper/youtube_helper.js');
-const {TvTable, MovieTable} = require('./models/index.js')
+const {TvTable, MovieTable, YoutubeTable} = require('./models/index.js')
 
 function loadTodaysData() {
-    TvApiHelper.callApiRetrieveData()
+  TvApiHelper.callApiRetrieveData()
     .then( (tvData) => {
         tvData.forEach((tvObj) => {
             TvTable.create(tvObj)
@@ -32,6 +32,20 @@ function loadTodaysData() {
             });
         });
    })
+/*    YoutubeApiHelper.callApiRetrieveData()
+    .then( (youtubeData) => {
+        youtubeData.forEach((youtubeObj) => {
+            YoutubeTable.create(youtubeObj)
+            .then( () => {
+                console.log("SUCCESS");
+            })
+            .catch( (err) => {
+                console.log("ERROR");
+                console.log(err);
+            });
+        });
+   })
+*/
 }
 
 module.exports = loadTodaysData;
