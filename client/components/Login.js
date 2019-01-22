@@ -18,11 +18,13 @@ class LoginComp extends React.Component{
         this.setState({
             username: e.value
         })
+        console.log(this.state.username);
     }
     handlePassword(e) {
         this.setState({
             password:e.value
         })
+        console.log(this.state.password);
     }
     handleLogin() {
         //Api call to check is username and password matches
