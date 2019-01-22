@@ -25,7 +25,6 @@ class MoviesComp extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.display)
     return {
         dataMovie: state.data.dataMovie
     }

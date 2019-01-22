@@ -10,21 +10,7 @@ class LoginComp extends React.Component{
             username:'',
             password:''
         }
-        this.handleUsername.bind(this);
-        this.handlePassword.bind(this);
-        this.handleLogin.bind(this);
-    }
-    handleUsername(e) {
-        this.setState({
-            username: e.value
-        })
-        console.log(this.state.username);
-    }
-    handlePassword(e) {
-        this.setState({
-            password:e.value
-        })
-        console.log(this.state.password);
+        this.handleLogin = this.handleLogin.bind(this);
     }
     handleLogin() {
         //Api call to check is username and password matches
@@ -36,13 +22,23 @@ class LoginComp extends React.Component{
             <div>
                 <input id="username" 
                     placeholder="Username"
-                    onKeyDown={this.handleUsername}>
+                    onKeyPress={(e) => {
+                        this.setState({
+                            username:e.target.value
+                        })
+                        console.log(this.state.username)
+                    }
+                    }>
                 </input>
                 <input id="password"
                     placeholder="Password"
-                    onKeyDown={this.handlePassword}>
+                    onKeyPress={(e) => {
+                        this.setState({password:e.target.value});
+                        console.log(this.state.password);
+                        }
+                    }>
                 </input>
-                <button onClick={this.handleLogin}>Login</button>
+                <button onClick={(e) => this.handleUsername(e.keyCode)}>Login</button>
             </div>
         );
     }

@@ -10,10 +10,10 @@ class NavbarComp extends React.Component {
         return(
             <div>
                 <h1>Snapshot</h1>
-                <button onClick={this.props.clickNav('daily')}>Daily</button>
-                <button onClick={this.props.clickNav('login')}>Login</button>
+                <button onClick={() => this.props.clickNav('daily')}>Daily</button>
+                <button onClick={() => this.props.clickNav('login')}>Login</button>
                 <button onClick={
-                    ()=> {
+                    () => {
                         if(this.props.loggedIn)
                             this.props.clickNav('page')
                         else

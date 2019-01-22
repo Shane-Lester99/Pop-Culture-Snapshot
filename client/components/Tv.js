@@ -25,7 +25,6 @@ class TvComp extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.display)
     return {
         dataTv: state.data.dataTv,
     }

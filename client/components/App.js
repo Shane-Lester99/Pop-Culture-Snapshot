@@ -22,8 +22,9 @@ class AppComp extends React.Component {
     return(
       <div>
         <Navbar />
-        <Daily />
-        
+        {
+          display()
+        }   
       </div>
     );
   }
