@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import {Students, Campuses } from './components/index.js';
-const Index = () => {
-    return <div> Hello React! 
-            <Students />
-            <Campuses />
-        </div>
-};
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import reducer from './reducers';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-ReactDom.render(<Index />, document.getElementById('root'));
-
+const store = createStore(reducer);
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+, document.getElementById('root'));
 
