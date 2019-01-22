@@ -1,0 +1,276 @@
+/* ----------------------------------------------------------------
+	Basic
+-----------------------------------------------------------------*/
+/* :active,
+:focus { outline: none !important; } */
+
+
+/* ----------------------------------------------------------------
+	Typography
+-----------------------------------------------------------------*/
+body {
+  color: #000;
+  line-height: 1.5;
+  margin: 0;
+  font-size: 16px;
+  font-family:
+  -apple-system, BlinkMacSystemFont,  /* Safari Mac/iOS, Chrome */
+  "Segoe UI", Roboto, Oxygen, /* Windows, Android, KDE */
+  Ubuntu, Cantarell, "Fira Sans", /* Ubuntu, Gnome, Firefox OS */
+  "Droid Sans", "Helvetica Neue", sans-serif; /* Old Android */
+}
+
+/* ----------------------------------------------------------------
+	Basic Layout Styles
+-----------------------------------------------------------------*/
+h1, h2, h3,
+h4, h5, h6 {
+    color: #444;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 { font-size: 36px; }
+
+h2 { font-size: 30px; }
+
+h3 { font-size: 24px; }
+
+h4 { font-size: 18px; }
+
+p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
+    margin-bottom: 30px;
+}
+
+.logo {
+  margin: 8px;
+  display: inline-block;
+  padding: 4px 8px;
+  font-weight: 700;
+}
+
+.site-wrapper {
+  /* background: #000; */
+  /* background-image: radial-gradient(#244C65, #04304C); */
+}
+/* ----------------------------------------------------------------
+	Helper Classes
+-----------------------------------------------------------------*/
+#site-wrapper {
+	position: relative;
+	float: none;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+}
+
+.bg-grey {
+    background-color: #f8f9fa !important;
+}
+
+/* ----------------------------------------------------------------
+	Header
+-----------------------------------------------------------------*/
+#header-wrap {
+  position: fixed;
+  padding: 12px 0;
+  height: auto;
+  width: 100%;
+  z-index: 1030;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+#header-wrap .container {
+  display: flex;
+  display: -ms-grid;
+  -ms-grid-columns: 100% 0 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 8px 16px;
+}
+
+/* @media (min-width: 1024px) {
+  .navbar-shrink { background-color: #222 !important; }
+  .navbar-shrink .container { padding: 8px 16px !important; }
+} */
+#primary-menu {
+  -ms-grid-column: 2;
+  align-self: center;
+  width: 100%;
+}
+
+#primary-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  float: right;
+}
+#primary-menu ul li {
+  margin: 8px;
+  padding: 4px 8px;
+  list-style: none;
+  display: flex;
+  border-radius: 5px;
+  /* background: #717589; */
+  float: right;
+  color: #888;
+}
+
+/* ----------------------------------------------------------------
+	Content
+-----------------------------------------------------------------*/
+#content {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.content-wrap {
+  padding: 25px 0;
+  line-height: 1.8;
+}
+.container h3 {
+  margin-left: 25px;
+  margin-bottom: 8px;
+}
+
+
+.snap-item { margin-left: 25px; }
+.snap-items > .snap-item ~ .snap-item {
+  margin-left: 16px;
+}
+
+
+
+
+
+
+
+.scroll-btn {
+  align-self: center;
+  margin: auto;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+}
+.scroll-btn.l {
+  left: 0;
+}
+.scroll-btn.r {
+  right: 0;
+}
+
+
+.snap-scroll {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: visible;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scroll-behavior: smooth;
+}
+
+.snap-scroll::-webkit-scrollbar { width: 0 !important }
+
+.snap-item img {
+    border-radius: 15px;
+}
+
+.site-wrapper section { padding-top: 70px; }
+.site-wrapper > section ~ section { padding-top: 0; }
+
+
+/* ----------------------------------------------------------------
+	Modal
+-----------------------------------------------------------------*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 16px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 1050;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close, .add {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close { float: right; }
+.add { float: left; }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  color: white;
+}
+
+.modal-body {
+  padding: 30px 20px;
+}
+.modal-body img { width: 100%; }
+.modal-body span { color: #aaa; }
+
+.modal-footer {
+  padding: 2px 16px;
+  color: white;
+}

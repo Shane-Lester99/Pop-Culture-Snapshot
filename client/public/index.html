@@ -1,14 +1,165 @@
-<!doctype html>
-<html lang='en'>
-    <head>
-        <meta charset='utf8'>
-        <title> Hello World </title>
-    </head>
-    <body>
-        <div id='root'> </div>
-    </body>
-    <script src="./bundle.js"> </script>
-    <!--<script src="../index.js"> </script>-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <body>
+
+    <div class="site-wrapper">
+      <header id="header-wrap">
+        <nav id="primary-menu">
+          <span class="logo">PopSnapShot</span>
+          <ul>
+            <li>Snap shot</li>
+            <li>Login</li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="youtube">
+        <div class="content-wrap">
+          <div class="container">
+            <h3>YouTube</h3>
+            <div class="snap-items snap-scroll">
+              <button class="scroll-btn r" onclick="scrollRight(this)">></button><br><br>
+              <button class="scroll-btn l" onclick="scrollLefty(this)"><</button><br><br>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="youtube">
+        <div class="content-wrap">
+          <div class="container">
+            <h3>YouTube</h3>
+            <div class="snap-items snap-scroll">
+              <button class="scroll-btn r" onclick="scrollRight(this)">></button>
+              <button class="scroll-btn l" onclick="scrollLefty(this)"><</button>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="youtube">
+        <div class="content-wrap">
+          <div class="container">
+            <h3>YouTube</h3>
+            <div class="snap-items snap-scroll">
+              <button class="scroll-btn r" onclick="scrollRight(this)">></button><br><br>
+              <button class="scroll-btn l" onclick="scrollLefty(this)"><</button><br><br>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/ATTMB4gH3sU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAqDBC9j7256ZfNR6RJydT3H4lqww" alt="">
+              </div>
+              <div class="snap-item">
+                <img src="https://i.ytimg.com/vi/P5xQU5NB7R0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXjfo0C2P8ZdJH0MJ8BIFvjiFk9w" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="add">+</span>
+          <span class="close">&times;</span>
+        </div>
+        <br>
+        <div class="modal-body">
+          <img src="https://i.ytimg.com/vi/QAiuC7AoP3s/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB0HoK8rK2e6LZy_eE4SRrPlpfjTw" alt="">
+          <br>
+          <span>Channel</span>
+          <h2>Title</h2>
+          <p>Some other text...</p>
+        </div>
+        <div class="modal-footer">
+          <h3>Footer</h3>
+        </div>
+      </div>
+
+    </div>
+  </body>
 </html>
-
-
