@@ -1,6 +1,18 @@
 require('dotenv').config();
 const axios =  require('axios');
 
+let apiKey;
+if (process.env.YOUTUBE_API_KEY_LOCAL) {
+    console.log("LOCAL API KEY USED FOR Youtube");
+    apiKey = process.env.YOUTUBE_API_KEY_LOCAL;
+} else if (process.env.YOUTUBE_API_KEY_PRODUCTION) {
+    console.log("PRODUCTION API KEY USED FOR Youtube");
+    apiKey = process.env.YOUTUBE_API_KEY_PRODUCTION;
+} else {
+    console.error("NO API KEY SET ERROR FOR Youtube.");
+    process.exit(1);
+}
+
 class YoutubeApiHelper {
     constructor() {
 
@@ -8,7 +20,8 @@ class YoutubeApiHelper {
             base : "https://www.googleapis.com/youtube/v3/search?",
             part : "part=snippet",
             maxResults: "maxResults=10",
-            api_key: `key=${process.env.YOUTUBE_API_KEY_LOCAL}`,
+            order: "order=viewCount",
+            api_key: `key=${apiKey}`,
             pushlishedAfter: `publishedAfter=${this.getPrevDate()}`
         }
     }
@@ -26,7 +39,7 @@ class YoutubeApiHelper {
             api_call += entry[1] + "&";
         });
         api_call = api_call.slice(0,-1);
-        
+       console.log("API LINK: ", api_call); 
         // Call API
         return axios.get(api_call)
         .then(function (response) {

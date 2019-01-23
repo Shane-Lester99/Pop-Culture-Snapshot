@@ -9,6 +9,7 @@ const Youtube = db.define('youtube', {
         defaultValue: 'server/images/default_youtube_icon.svg',
         allowNull: false
     },
+    channelTitle : Sequelize.STRING,
     vidId: Sequelize.STRING,
     description: Sequelize.TEXT,
     date: Sequelize.DATEONLY,
