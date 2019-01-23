@@ -142,7 +142,7 @@ const initialState = {
   data: d,
   userData: {},
   modalData: {},
-  modalDiplay: ''
+  modalDiplay: '',
 };
 
 
@@ -177,7 +177,7 @@ export default (state = initialState, action) => {
         state.showModal = false,
         state.modalData = '',
         state.modalDisplay = ''
-			)
+      )
     default:
       return state;
   }

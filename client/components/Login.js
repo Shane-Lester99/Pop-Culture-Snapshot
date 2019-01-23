@@ -1,54 +1,29 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {clickSubmitFunct} from '../actions';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
-
-class LoginComp extends React.Component{
+class Login extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            username:'',
-            password:''
+            signIn:true
         }
-        this.handleLogin = this.handleLogin.bind(this);
+        this.handleSwap = this.handleSwap.bind(this);
     }
-    handleLogin() {
-        //Api call to check is username and password matches
-        //this.props.clickSubmit(data.userId,data.userData)
-        //catch alert wrong username or pw
+
+    handleSwap() {
+        this.setState({signIn: !this.state.signIn});
     }
     render() {
+
         return(
             <section>
-                <input id="username"
-                    placeholder="Username"
-                    onKeyPress={(e) => {
-                        this.setState({
-                            username:e.target.value
-                        })
-                    }
-                    }>
-                </input>
-                <input id="password"
-                    placeholder="Password"
-                    onKeyPress={ (e) => {
-                        this.setState({password:e.target.value});
-                        }
-                    }>
-                </input>
-                <button onClick={(e) => this.handleUsername(e.keyCode)}>Login</button>
+                {
+                    this.state.signIn ? <SignIn handleSwap={this.handleSwap}/> : <SignUp handleSwap={this.handleSwap}/>
+                }
             </section>
         );
     }
 }
 
-const mapDispatchtoProps = (dispatch, ownProps) => {
-    return {
-        clickSubmit: (userId,userData) => {
-            dispatch(clickSubmitFunct(userId,userData));
-        }
-    }
-}
-
-const Login = connect(null,mapDispatchtoProps)(LoginComp);
 export default Login;

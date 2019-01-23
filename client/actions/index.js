@@ -3,7 +3,6 @@ export const CLICKNAV = "CLICKNAV";
 export const CLOSEMODAL = "CLOSEMODAL"
 export const CLICKSUBMIT ="CLICKSUMBIT";
 
-
 export const clickBoxFunct = (display, payload) => {
     return {
         type: CLICKBOX,
