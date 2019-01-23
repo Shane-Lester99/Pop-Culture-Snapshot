@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 class YoutubeModalComp extends React.Component {
   render() {
-    const path = 'https://www.youtube.com/embed';
-    const yt = "/tgbNymZ7vqY";
+    const path = 'https://www.youtube.com/embed/';
     return (
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
@@ -18,9 +17,9 @@ class YoutubeModalComp extends React.Component {
             <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
           </div>
           <div className="modal-body">
-            <iframe src={path + yt} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>
-            <h2>Video Name</h2>
-            <p>Description</p>
+            <iframe src={path + this.props.modalData.vidId} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>
+            <h2>{this.props.modalData.title}</h2>
+            <p>{this.props.modalData.description}</p>
           </div>
           <div className="modal-footer">
             <h3>Footer</h3>
