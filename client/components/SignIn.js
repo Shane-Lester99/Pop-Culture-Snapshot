@@ -19,21 +19,21 @@ class SignInComp extends React.Component{
     }
     render() {
         return(
-            <section>
+            <div>
                 <div>
                     <h1>Sign In</h1>
                     <form onSubmit={(e) => {
                         e.preventDefault();
                         console.log(this.state);
                     }}>
-                        <input type="text" 
+                        <input type="text"
                             onChange={(e) => {
                                 this.setState({username: e.target.value})
                             }}
                             placeholder="Username"
                         >
                         </input>
-                        <input type="text" 
+                        <input type="text"
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}
@@ -48,7 +48,7 @@ class SignInComp extends React.Component{
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
                     <button onClick={() => this.props.handleSwap()}>Sign Up</button>
                 </div>
-            </section>
+            </div>
         );
     }
 }
@@ -64,7 +64,7 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
         clickSubmit: (userId,userData) => {
             dispatch(clickSubmitFunct(userId,userData));
         }
-        
+
     }
 }
 
