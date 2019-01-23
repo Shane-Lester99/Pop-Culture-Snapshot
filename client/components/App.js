@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Navbar from './Navbar';
 import Login from './Login';
 import Modal from './Modal';
+import YoutubeModal from './YoutubeModal';
 
 
 class AppComp extends React.Component {
@@ -21,10 +22,20 @@ class AppComp extends React.Component {
       }
     }
     const showModal = () => {
-      if(this.props.showModal === true)
-        return <Modal />
+      if(this.props.showModal === true){
+        switch(this.props.modalDisplay){
+          case 'tv':
+            return <Modal />
+          case 'movie':
+            return <Modal />
+          case 'youtube':
+            return <YoutubeModal />
+          default:
+            return null
+        }
+      }
       else {
-        return <div>Modal Hidden</div>
+        return null;
       }
     }
     return(
@@ -44,7 +55,8 @@ class AppComp extends React.Component {
 const mapStatetoProps = (state,ownProps) => {
   return {
     display: state.display,
-    showModal: state.showModal
+    showModal: state.showModal,
+    modalDisplay: state.modalDisplay
   }
 }
 

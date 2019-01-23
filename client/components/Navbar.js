@@ -22,7 +22,7 @@ class NavbarComp extends React.Component {
                               else
                                   this.props.clickNav('login')
                           }
-                      }>Login</button>
+                      }>My Page</button>
                     </ul>
                   </nav>
                 </header>

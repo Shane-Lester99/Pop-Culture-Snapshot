@@ -26,15 +26,13 @@ class LoginComp extends React.Component{
                         this.setState({
                             username:e.target.value
                         })
-                        console.log(this.state.username)
                     }
                     }>
                 </input>
                 <input id="password"
                     placeholder="Password"
-                    onKeyPress={(e) => {
+                    onKeyPress={ (e) => {
                         this.setState({password:e.target.value});
-                        console.log(this.state.password);
                         }
                     }>
                 </input>

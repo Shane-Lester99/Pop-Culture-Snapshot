@@ -5,7 +5,6 @@ export const CLICKSUBMIT ="CLICKSUMBIT";
 
 
 export const clickBoxFunct = (display, payload) => {
-  console.log("Clicked");
     return {
         type: CLICKBOX,
         display,
