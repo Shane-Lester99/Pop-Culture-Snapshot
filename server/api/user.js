@@ -134,17 +134,24 @@ router.put('/', (req, res, next) => {
     })
     .then( (row) => {
         if (row === null) {
-            console.log("We hit null");
+            //console.log("We hit null");
             //res.status(404).send("not found");
             accountExists = false;
-            console.log(accountExists);
-        } else {
-            console.log("We didnt hit null");
+           // console.log(accountExists);
+        }
+    })
+    .then ( async () => {
+        if (accountExists) {
+            await UserFavTrendsTable.destroy( {
+                where : {
+                    accountName
+                }
+            })
         }
     })
     .then ( () => {
 
-        console.log(accountExists);
+        //console.log(accountExists);
         if (accountExists) {
             mediaObjs.forEach( async (mediaItem) => {
                 const newItem = {

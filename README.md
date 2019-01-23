@@ -25,7 +25,6 @@ $> node server/index.js
 ## To get the user data
 
     - localhost:3000/api/user via get // This will return all the user data 
-
     - localhost:3000/api/user via post
 
         - In js body, have:
