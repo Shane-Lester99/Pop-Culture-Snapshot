@@ -1,5 +1,29 @@
+// /api/user endpoint with post, put, and get methods
+
 const router = require('express').Router();
 const { UserTable, UserFavTrendsTable, MovieTable, YoutubeTable, TvTable } = require('../models');
+
+
+// This will be for our login.
+// TODO: add in legit authentication
+router.get('/:user/:password', (req, res, next) => {
+    UserTable.findOne({
+        where : {
+            accountName : req.params.user,
+            password : req.params.password
+        }
+    })
+    .then( (row) => {
+        if (row) {
+            res.status(200).send();
+        } else {
+            res.status(404).send();
+        }
+    })
+});
+
+// Will return all the users as JSON without associated media objs
+// THIS IS JUST FOR TESTING!
 router.get('/', async (req, res, next) => {
     try {
         var users = await UserTable.findAll()
@@ -17,6 +41,8 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// Will be able to get user data given accountName. Includes
+// associated media objects
 router.get('/:user', (req, res, next) => {
    let jsonData = {};
    UserTable.findOne( {
@@ -121,8 +147,7 @@ router.get('/:user', (req, res, next) => {
     
 })
 
-
-
+// Updates the data of specific user 
 router.put('/', (req, res, next) => {
     console.log(req.body);
     const { accountName, description, userPhoto,  mediaObjs } = req.body;

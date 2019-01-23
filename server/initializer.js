@@ -37,6 +37,7 @@ function loadTodaysData() {
             });
         });
    })
+   
     YoutubeApiHelper.callApiRetrieveData()
     .then( (youtubeData) => {
         youtubeData.forEach((youtubeObj) => {
