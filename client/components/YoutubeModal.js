@@ -2,9 +2,10 @@ import React from 'react';
 import { closeModalFunct } from '../actions';
 import { connect } from 'react-redux';
 
-class ModalComp extends React.Component {
+class YoutubeModalComp extends React.Component {
   render() {
-    const path = 'http://image.tmdb.org/t/p/w185/';
+    const path = 'https://www.youtube.com/embed';
+    const yt = "/tgbNymZ7vqY";
     return (
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
@@ -17,9 +18,9 @@ class ModalComp extends React.Component {
             <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
           </div>
           <div className="modal-body">
-            <img src={path+this.props.modalData.posterPath} alt=""></img>
-            <h2>{this.props.modalData.title}</h2>
-            <p>{this.props.modalData.overview}</p>
+            <iframe src={path + yt} height="400" width="100%" objectFit="cover" allowFullScreen frameBorder="0" ></iframe>
+            <h2>Video Name</h2>
+            <p>Description</p>
           </div>
           <div className="modal-footer">
             <h3>Footer</h3>
@@ -44,5 +45,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const Modal = connect(mapStateToProps, mapDispatchToProps)(ModalComp);
-export default Modal;
+const YoutubeModal = connect(mapStateToProps, mapDispatchToProps)(YoutubeModalComp);
+export default YoutubeModal;

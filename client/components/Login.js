@@ -19,27 +19,25 @@ class LoginComp extends React.Component{
     }
     render() {
         return(
-            <div>
-                <input id="username" 
+            <section>
+                <input id="username"
                     placeholder="Username"
                     onKeyPress={(e) => {
                         this.setState({
                             username:e.target.value
                         })
-                        console.log(this.state.username)
                     }
                     }>
                 </input>
                 <input id="password"
                     placeholder="Password"
-                    onKeyPress={(e) => {
+                    onKeyPress={ (e) => {
                         this.setState({password:e.target.value});
-                        console.log(this.state.password);
                         }
                     }>
                 </input>
                 <button onClick={(e) => this.handleUsername(e.keyCode)}>Login</button>
-            </div>
+            </section>
         );
     }
 }

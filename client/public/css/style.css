@@ -189,7 +189,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
     flex-wrap: nowrap;
     width: 100%;
     overflow: hidden;
-    overflow-x: visible;
+    overflow-x: hidden;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     scroll-behavior: smooth;

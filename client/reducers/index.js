@@ -152,7 +152,7 @@ export default (state = initialState, action) => {
       return Object.assign(
         {},
         state,
-        state.showModal = !state.showModal,
+        state.showModal = true,
         state.modalData = action.payload,
         state.modalDisplay = action.display
       )
@@ -174,7 +174,9 @@ export default (state = initialState, action) => {
 			return Object.assign(
 				{},
 				state,
-				state.showModal = false
+        state.showModal = false,
+        state.modalData = '',
+        state.modalDisplay = ''
 			)
     default:
       return state;
