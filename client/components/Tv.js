@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class TvComp extends React.Component{
     render() {
         const path = 'http://image.tmdb.org/t/p/w185/';
-        const Tv = this.props.dataTv.map(show =>
+        const Tv = this.props.tvData.map(show =>
           <div className="snap-item" key={show.title}>
             <img
                 src={path+show.posterPath}
@@ -36,7 +36,7 @@ class TvComp extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        dataTv: state.data.dataTv,
+        tvData: state.data.tvData,
     }
 }
 

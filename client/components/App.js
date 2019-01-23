@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Navbar from './Navbar';
 import Login from './Login';
 import Modal from './Modal';
+import Youtube from './Youtube';
 import YoutubeModal from './YoutubeModal';
 
 
@@ -17,6 +18,8 @@ class AppComp extends React.Component {
           return <Daily />
         case "login":
           return <Login />
+        case "youtube":
+          return <Youtube />
         default:
           return <Daily />
       }

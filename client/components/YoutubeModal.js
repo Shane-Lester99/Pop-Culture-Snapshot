@@ -18,7 +18,7 @@ class YoutubeModalComp extends React.Component {
             <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
           </div>
           <div className="modal-body">
-            <iframe src={path + yt} height="400" width="100%" objectFit="cover" allowFullScreen frameBorder="0" ></iframe>
+            <iframe src={path + yt} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>
             <h2>Video Name</h2>
             <p>Description</p>
           </div>
