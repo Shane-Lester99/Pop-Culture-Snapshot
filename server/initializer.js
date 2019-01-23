@@ -1,3 +1,8 @@
+// This provides a function called to call all apis. Should only be
+// called once a day max on production. Calling it multiple times
+// per day without resetting database will store redundant data in 
+// the database which will result in undefined behavior
+
 const MovieApiHelper  =  require('./helper/movie_helper.js');
 const TvApiHelper  = require('./helper/tv_helper.js');
 const YoutubeApiHelper = require('./helper/youtube_helper.js');
@@ -32,7 +37,7 @@ function loadTodaysData() {
             });
         });
    })
-/*    YoutubeApiHelper.callApiRetrieveData()
+    YoutubeApiHelper.callApiRetrieveData()
     .then( (youtubeData) => {
         youtubeData.forEach((youtubeObj) => {
             YoutubeTable.create(youtubeObj)
@@ -45,7 +50,7 @@ function loadTodaysData() {
             });
         });
    })
-*/
+
 }
 
 module.exports = loadTodaysData;
