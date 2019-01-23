@@ -1,15 +1,12 @@
-import  { CLICKBOX, CLICKNAV, CLICKSUBMIT, CLOSEMODAL} from "../actions";
+import  { CLICKBOX, CLICKNAV, CLICKSUBMIT, CLOSEMODAL, GETDATA} from "../actions";
 
 import data from './data';
-// data = JSON.parse(data);
-
-console.log("data" , data)
 
 const initialState = {
   display: "daily",
   showModal: false,
   loggedIn: false,
-  userId: 0,
+  userId: '',
   data,
   userData: {},
   modalData: {},
@@ -48,6 +45,12 @@ export default (state = initialState, action) => {
         state.showModal = false,
         state.modalData = '',
         state.modalDisplay = ''
+      )
+    case GETDATA:
+      return Object.assign(
+        {},
+        state,
+        state.data = action.payload
       )
     default:
       return state;

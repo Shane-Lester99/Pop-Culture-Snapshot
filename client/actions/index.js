@@ -2,6 +2,7 @@ export const CLICKBOX = "CLICKBOX";
 export const CLICKNAV = "CLICKNAV";
 export const CLOSEMODAL = "CLOSEMODAL"
 export const CLICKSUBMIT ="CLICKSUMBIT";
+export const GETDATA = "GETDATA";
 
 export const clickBoxFunct = (display, payload) => {
     return {
@@ -30,4 +31,11 @@ export const closeModalFunct = () => {
   return {
     type: CLOSEMODAL,
   }
+}
+
+export const getDataFunct = (payload) => {
+    return {
+        type: GETDATA,
+        payload
+    }
 }

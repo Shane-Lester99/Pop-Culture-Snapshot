@@ -6,9 +6,18 @@ import Login from './Login';
 import Modal from './Modal';
 import Youtube from './Youtube';
 import YoutubeModal from './YoutubeModal';
+import { getDataFunct } from '../actions';
 
 
 class AppComp extends React.Component {
+
+  ComponentDidMount () {
+    let date = new Date().toISOString().split('T')[0];
+    fetch(`/api/daily/${date}`)
+      .then(res => {
+        this.props.getData(JSON.parse(res));
+      })
+  }
 
   render() {
     // save in a variable the result of a ternary expression
@@ -63,6 +72,14 @@ const mapStatetoProps = (state,ownProps) => {
   }
 }
 
-const App = connect(mapStatetoProps)(AppComp);
+const mapDispatchtoProps = (Dispatch, ownProps) => {
+  return {
+    getData: (payload) => {
+      dispatch(getDataFunct(payload))
+    }
+  }
+}
+
+const App = connect(mapStatetoProps,mapDispatchtoProps)(AppComp);
 
 export default App;
