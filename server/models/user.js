@@ -10,7 +10,7 @@ const User = db.define('user', {
     userPhoto : {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: 'server/images/default_user_icon.svg',
+        defaultValue: ''
     },
     description : {
         type: Sequelize.STRING,
