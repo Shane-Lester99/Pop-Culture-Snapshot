@@ -11,6 +11,10 @@ const Tv = db.define('tv', {
     },
     overview: Sequelize.TEXT,
     date: Sequelize.DATEONLY,
+    type: {
+        type:Sequelize.STRING,
+        defaultValue:"tv"
+    }
 }, {timestamps : false});
 
 module.exports = Tv;

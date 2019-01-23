@@ -12,7 +12,10 @@ const Movie = db.define('movie', {
     },
     overview: Sequelize.TEXT,
     date: Sequelize.DATEONLY,
-
+    type: {
+        type:Sequelize.STRING,
+        defaultValue:"movie"
+    }
 }, {timestamps: false});
 
 module.exports = Movie;
