@@ -55,7 +55,7 @@ router.get('/:someDate', async (req, res, next) => {
     }, 1000) 
 });
 
-// TODO: Pass in as request body, not as query string!
+/*
 router.post('/', async (req, res, next) => {
     //console.log(req.body);
     
@@ -79,5 +79,5 @@ router.post('/', async (req, res, next) => {
         res.status(500).send(err);
     }
 });
-
+*/
 module.exports = router;

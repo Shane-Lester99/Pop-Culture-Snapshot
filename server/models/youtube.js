@@ -11,7 +11,12 @@ const Youtube = db.define('youtube', {
     },
     vidId: Sequelize.STRING,
     description: Sequelize.TEXT,
-    date: Sequelize.DATEONLY
+    date: Sequelize.DATEONLY,
+    type: {
+        type: Sequelize.STRING,
+        defaultValue: "youtube"
+    }
+
 }, {timestamps: false});
 
 module.exports = Youtube;

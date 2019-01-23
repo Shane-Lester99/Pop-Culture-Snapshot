@@ -10,7 +10,11 @@ const Tv = db.define('tv', {
         allowNull: false
     },
     overview: Sequelize.TEXT,
-    date: Sequelize.DATEONLY
+    date: Sequelize.DATEONLY,
+    type: {
+        type:Sequelize.STRING,
+        defaultValue:"tv"
+    }
 }, {timestamps : false});
 
 module.exports = Tv;
