@@ -37,7 +37,7 @@ class YoutubeApiHelper {
             items.forEach( (item) => {
                 const title = item.snippet.title;
                 const channelId = item.snippet.channelId;
-                const thumbnail = item.snippet.thumbnails.default.url;
+                const thumbnail = item.snippet.thumbnails.medium.url;
                 const vidId = item.id.videoId;
                 const channelTitle = item.snippet.channelTitle;
                 const description = item.snippet.description;
