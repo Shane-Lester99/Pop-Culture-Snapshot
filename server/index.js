@@ -5,18 +5,20 @@ const app = express();
 const { db } = require('./models');
 const path = require('path');
 const port = process.env.PORT || 3000;
-const todaysData = require('./initializer.js') 
+const  checkTodaysData  = require('./initializer.js') 
 
 app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 
 app.use(body_parser.json());
 app.use('/api', require('./api'));
 
-db.sync({force: true}).then( async () => {
+db.sync().then( async () => {
     console.log("DB synced!")
-     await todaysData();
-    console.log("Data has been collected for todays trends!")
-    
+    //loadTodaysData();
+    await checkTodaysData();
+    //await todaysData();
+    //console.log("Data has been collected for todays trends!")
+    console.log("DB checked!");
 }); 
 
 

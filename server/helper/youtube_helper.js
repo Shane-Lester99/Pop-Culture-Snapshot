@@ -39,7 +39,7 @@ class YoutubeApiHelper {
             api_call += entry[1] + "&";
         });
         api_call = api_call.slice(0,-1);
-       console.log("API LINK: ", api_call); 
+
         // Call API
         return axios.get(api_call)
         .then(function (response) {
