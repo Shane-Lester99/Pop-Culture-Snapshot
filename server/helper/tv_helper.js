@@ -5,7 +5,17 @@ const axios =  require('axios');
 
 //console.log(process.env.MOVIE_DATABASE_API);
 //console.log(process.env.YOUTUBE_API_KEY_LOCAL);
-
+let apiKey;
+if (process.env.MOVIE_DATABASE_API_KEY_LOCAL) {
+    console.log("LOCAL API KEY USED FOR TMDB: Tv");
+    apiKey = process.env.MOVIE_DATABASE_API_KEY_LOCAL;
+} else if (process.env.TMDB_API_KEY_PRODUCTION) {
+    console.log("PRODUCTION API KEY USED FOR TMDB: Tv");
+    apiKey = process.env.TMDB_API_KEY_PRODUCTION;
+} else {
+    console.error("NO API KEY SET ERROR FOR TMDB: Tv.");
+    process.exit(1);
+}
 
 class TvApiHelper {
     constructor() {
@@ -15,7 +25,7 @@ class TvApiHelper {
             category : "trending/",
             type: "tv/",
             timeLength: "day?",
-            api_key: `api_key=${process.env.MOVIE_DATABASE_API_KEY_LOCAL}`,
+            api_key: `api_key=${apiKey}`,
         }
     }
     callApiRetrieveData() {
