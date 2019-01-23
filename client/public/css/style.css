@@ -201,9 +201,13 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
     border-radius: 15px;
 }
 
-.site-wrapper section { padding-top: 70px; }
+.site-wrapper section { padding-top: 100px; }
 .site-wrapper > section ~ section { padding-top: 0; }
 
+
+section:nth-child(2) {
+  background-color: #eee;
+}
 
 /* ----------------------------------------------------------------
 	Modal
