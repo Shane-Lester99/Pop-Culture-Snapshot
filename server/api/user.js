@@ -124,8 +124,8 @@ router.get('/:user', (req, res, next) => {
 
 
 router.put('/', (req, res, next) => {
-//    console.log(req.body);
-    const { accountName, mediaObjs } = req.body;
+    console.log(req.body);
+    const { accountName,  mediaObjs } = req.body;
     var accountExists = true;
     UserTable.findOne( { 
         where : {
@@ -148,7 +148,15 @@ router.put('/', (req, res, next) => {
                 }
             })
         }
-    })
+    })/*
+    .then (async () => {
+        if (accountExists) {
+            await UserTable.update({
+                description, 
+                userPhoto
+            } );
+        }
+    })*/
     .then ( () => {
 
         //console.log(accountExists);

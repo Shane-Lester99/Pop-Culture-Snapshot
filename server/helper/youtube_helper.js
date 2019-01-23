@@ -26,6 +26,7 @@ class YoutubeApiHelper {
             api_call += entry[1] + "&";
         });
         api_call = api_call.slice(0,-1);
+        
         // Call API
         return axios.get(api_call)
         .then(function (response) {
@@ -39,11 +40,13 @@ class YoutubeApiHelper {
                 const thumbnail = item.snippet.thumbnails.default.url;
                 const vidId = item.id.videoId;
                 const channelTitle = item.snippet.channelTitle;
+                const description = item.snippet.description;
                 const newYoutubeObj = {
                     title,
                     channelId,
                     thumbnail,
                     vidId,
+                    description,
                     channelTitle,
                     date: new Date()
                 };
