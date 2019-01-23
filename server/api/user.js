@@ -125,7 +125,7 @@ router.get('/:user', (req, res, next) => {
 
 router.put('/', (req, res, next) => {
     console.log(req.body);
-    const { accountName,  mediaObjs } = req.body;
+    const { accountName, description, userPhoto,  mediaObjs } = req.body;
     var accountExists = true;
     UserTable.findOne( { 
         where : {
@@ -139,6 +139,7 @@ router.put('/', (req, res, next) => {
             accountExists = false;
            // console.log(accountExists);
         }
+        console.log('Then 1: Account exists: ' , accountExists); 
     })
     .then ( async () => {
         if (accountExists) {
@@ -148,15 +149,22 @@ router.put('/', (req, res, next) => {
                 }
             })
         }
-    })/*
+        console.log("Then 2");
+    })
     .then (async () => {
         if (accountExists) {
             await UserTable.update({
                 description, 
                 userPhoto
-            } );
+            },
+            {
+                where : {
+                    accountName
+                }
+            });
         }
-    })*/
+        console.log("then 3");
+    })
     .then ( () => {
 
         //console.log(accountExists);
@@ -173,7 +181,7 @@ router.put('/', (req, res, next) => {
         } else {
             res.status(404).send();
         }
-
+        console.log("then 4");
     })
     .catch( (err) => {
         console.log("error");
