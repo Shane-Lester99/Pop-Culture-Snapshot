@@ -2,16 +2,15 @@ import React from 'react';
 import { clickBoxFunct } from '../actions';
 import { connect } from 'react-redux';
 
-class MoviesComp extends React.Component{
+class YoutubeComp extends React.Component{
 
   render() {
-    const path = 'http://image.tmdb.org/t/p/w185/';
-    const Movie = this.props.movieData.map(movie =>
-      <div className="snap-item" key={movie.title}>
+    const Video = this.props.youtubeData.map(video =>
+      <div className="snap-item" key={video.title}>
         <img
-        src={path+movie.posterPath}
-        onClick={() => this.props.clickBox('movie',movie)}
-        alt="Movie Pic">
+        src={video.thumbnail}
+        onClick={() => this.props.clickBox('youtube',video)}
+        alt="Youtube Pic">
         </img>
       </div>
   );
@@ -20,12 +19,12 @@ class MoviesComp extends React.Component{
         <div className="content-wrap">
           <div className="container">
 
-            <h3>Movies</h3>
+            <h3>Youtube</h3>
             <div className="snap-items snap-scroll">
               <button className="scroll-btn r" onClick={(elem) => elem.target.parentNode.scrollBy(150, 0)}>{">"}</button>
               <button className="scroll-btn l" onClick={(elem) => elem.target.parentNode.scrollBy(-150, 0)}>{"<"}</button>
               {
-                Movie
+                Video
               }
             </div>
           </div>
@@ -37,7 +36,7 @@ class MoviesComp extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movieData: state.data.movieData
+    youtubeData: state.data.youtubeData
   }
 }
 
@@ -49,5 +48,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const Movie = connect(mapStateToProps,mapDispatchToProps)(MoviesComp);
-export default Movie;
+const Youtube = connect(mapStateToProps,mapDispatchToProps)(YoutubeComp);
+export default Youtube;

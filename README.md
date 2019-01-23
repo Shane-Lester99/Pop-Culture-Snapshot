@@ -25,7 +25,6 @@ $> node server/index.js
 ## To get the user data
 
     - localhost:3000/api/user via get // This will return all the user data 
-
     - localhost:3000/api/user via post
 
         - In js body, have:
@@ -47,8 +46,8 @@ $> node server/index.js
 
     - Get request will have the media objects returned that the user stored
 
-
-
+## IMPORTANT NOTE:
+- Currently the database deletes and recreates itself and recalls the API on each sync. The reason for this is so we dont have a messy database as we are testing the development and production database. Once the Heroku scheduler is added then we wont have to do that anymore :)
 
 
  
