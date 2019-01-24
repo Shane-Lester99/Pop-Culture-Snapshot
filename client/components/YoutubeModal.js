@@ -82,7 +82,7 @@ class YoutubeModalComp extends React.Component {
             <p>{this.props.modalData.description}</p>
           </div>
           <div className="modal-footer">
-            <h3>Footer</h3>
+            <h3>{this.props.modalData.type.toUpperCase()}</h3>
           </div>
         </div>
       </div>
