@@ -72,8 +72,8 @@ class YoutubeModalComp extends React.Component {
           </div>
           <div className="modal-body">
             <iframe src={path + this.props.modalData.vidId} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>
-            <a href={"https://www.youtube.com/watch?v="+this.props.modalData.vidId}>{this.props.modalData.title}</a>
-            <a href={"https://www.youtube.com/channel/"+this.props.modalData.channelId}>{this.props.modalData.channelTitle}</a>
+            <h2><a className="youtube-link" href={"https://www.youtube.com/watch?v="+this.props.modalData.vidId}>{this.props.modalData.title}</a></h2>
+            <h3><a className="youtube-link" href={"https://www.youtube.com/channel/"+this.props.modalData.channelId}>{this.props.modalData.channelTitle}</a></h3>
             <p>{this.props.modalData.description}</p>
           </div>
           <div className="modal-footer">

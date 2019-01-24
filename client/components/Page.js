@@ -50,17 +50,17 @@ class PageComp extends React.Component{
             }
         }
         return(
-            <div>
-                <img src={this.props.userData.user.userPhoto} alt="PHOTO"></img>
-                <h1>{this.props.userData.user.accountName}</h1>
-                <p>{this.props.userData.user.description}</p>
+            <section>
+                <h1 className="page-title">Saved Content</h1>
+                <div className="media">
                 {
                     Media
                 }
+                </div>
                 {
                     showModal()
                 }
-            </div>
+            </section>
         );
     }
 }
