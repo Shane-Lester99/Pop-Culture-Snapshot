@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 app.use(body_parser.json());
 app.use('/api', require('./api'));
 
-db.sync({force:true}).then( () => {
+db.sync().then( () => {
     console.log("DB synced!")
 }); 
 
