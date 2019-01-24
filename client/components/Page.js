@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import Modal from './Modal';
 import YoutubeModal from './YoutubeModal';
 
+//Account page
 class PageComp extends React.Component{
     render() {
+        //Return array of all media data
         const Media = this.props.userData.savedMedia.map( media =>{
             const path = 'http://image.tmdb.org/t/p/w185/';
             if(media.type === "movie" || media.type === "tv"){
@@ -32,6 +34,7 @@ class PageComp extends React.Component{
             }
         })
         
+        //Show modal and which modal
         const showModal = () => {
             if(this.props.showModal === true){
                 switch(this.props.modalDisplay){
@@ -54,10 +57,12 @@ class PageComp extends React.Component{
                 <h1 className="page-title">Saved Content</h1>
                 <div className="media">
                 {
+                    //Displays all the media
                     Media
                 }
                 </div>
                 {
+                    //Checks if to display modal
                     showModal()
                 }
             </section>
@@ -65,6 +70,8 @@ class PageComp extends React.Component{
     }
 }
 
+
+//Gets user data, if to show modal and which modal
 const mapStatetoProps = (state, ownProps) => {
     return {
         userData: state.userData,
@@ -73,6 +80,7 @@ const mapStatetoProps = (state, ownProps) => {
     }
 }
 
+//pass media data to modal
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         clickBox: (display,payload) => {

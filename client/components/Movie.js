@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 class MoviesComp extends React.Component{
 
   render() {
-    const path = 'http://image.tmdb.org/t/p/w185/';
+    const path = 'https://image.tmdb.org/t/p/w185/';
+    //Returns array of movie objs
     const Movie = this.props.movieData.map(movie =>
       <div className="snap-item" key={movie.title}>
         <img
@@ -21,10 +22,12 @@ class MoviesComp extends React.Component{
           <div className="container">
 
             <h3>Movies</h3>
+            {/* Side Scrolling */}
             <div className="snap-items snap-scroll">
               <button className="scroll-btn r" onClick={(elem) => elem.target.parentNode.scrollBy(150, 0)}>{">"}</button>
               <button className="scroll-btn l" onClick={(elem) => elem.target.parentNode.scrollBy(-150, 0)}>{"<"}</button>
               {
+                //Display all movie objs
                 Movie
               }
             </div>
@@ -35,12 +38,14 @@ class MoviesComp extends React.Component{
   }
 }
 
+//Movie data
 const mapStateToProps = (state, ownProps) => {
   return {
     movieData: state.data.movieData
   }
 }
 
+//Pass movie data to modal
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clickBox: (display,payload) => {

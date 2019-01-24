@@ -12,6 +12,7 @@ class SignUpComp extends React.Component{
         }
         this.handleSignUp = this.handleSignUp.bind(this);
     }
+    //Validate username and password and get user data
     handleSignUp() {
         this.props.signUpFunct(
             this.state.username,
@@ -20,7 +21,7 @@ class SignUpComp extends React.Component{
     }
     render() {
         return(
-            <div className="sign-swap">
+            <div className="sign-swap"> {/* Sign Up display */}
                 <div>
                     <h1>Sign Up</h1>
                     <form className="sign-form" onSubmit={(e) => {
@@ -44,7 +45,7 @@ class SignUpComp extends React.Component{
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
-                <div className="swap">
+                <div className="swap"> {/* Ask if has account display */}
                     <h1>Sign In</h1>
                     <p>Already have an account? Click the sign in button to go to the sign in page! </p>
                     <button onClick={() => this.props.handleSwap()}>Click Here to Sign In</button>
@@ -54,12 +55,14 @@ class SignUpComp extends React.Component{
     }
 }
 
+//Handle swapping between sign in and sign up
 const mapStatetoProps = (state, ownProps) => {
     return {
         handleSwap: ownProps.handleSwap
     }
 }
 
+//Validate username password
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         signUpFunct: (username,password) => {

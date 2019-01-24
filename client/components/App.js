@@ -12,12 +12,13 @@ import Page from './Page';
 
 class AppComp extends React.Component {
 
+  //Get daily data
 componentDidMount () {
     this.props.getDataAsync();
   }
 
   render() {
-    // save in a variable the result of a ternary expression
+    // decides which display to show
     const display = () => {
       switch(this.props.display) {
         case "daily":
@@ -30,6 +31,7 @@ componentDidMount () {
           return <Daily />
       }
     }
+    //Should modal be shown and which
     const showModal = () => {
       if(this.props.showModal === true){
         switch(this.props.modalDisplay){
@@ -51,9 +53,11 @@ componentDidMount () {
       <div className="site-wrapper">
         <Navbar />
         {
+          //Displays the component
           display()
         }
         {
+          //Checks if modal should display, which to display and display modal
           showModal()
         }
       </div>
@@ -61,6 +65,7 @@ componentDidMount () {
   }
 }
 
+//which display, should you show modal, which modal to display
 const mapStatetoProps = (state,ownProps) => {
   return {
     display: state.display,
@@ -69,6 +74,7 @@ const mapStatetoProps = (state,ownProps) => {
   }
 }
 
+//Get daily data
 const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
     getDataAsync: () => {

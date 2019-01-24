@@ -2,10 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { clickNavFunct, logOutFunct } from '../actions';
 
-
+//Navagation bar
 class NavbarComp extends React.Component {
 
     render() {
+        //Swap between login and logout function
         const log = () => {
             if(!this.props.loggedIn)
                 return(
@@ -23,18 +24,19 @@ class NavbarComp extends React.Component {
                   <nav id="primary-menu">
                     <span className="logo">PopSnapShot</span>
                     <ul>
-                      <button onClick={() => this.props.clickNav('daily')}>Snapshot</button>
-                      <button onClick={
-                          () => {
-                              if(this.props.loggedIn)
-                                  this.props.clickNav('page')
-                              else
-                                  this.props.clickNav('login')
-                          }
-                      }>My Page</button>
-                      {
-                          log()
-                      }
+                        {/* Buttons for Navagation */}
+                        <button onClick={() => this.props.clickNav('daily')}>Snapshot</button>
+                        <button onClick={
+                            () => {
+                                if(this.props.loggedIn)
+                                    this.props.clickNav('page')
+                                else
+                                    this.props.clickNav('login')
+                            }
+                        }>My Page</button>
+                        {
+                            log()
+                        }
                     </ul>
                   </nav>
                 </header>
@@ -43,6 +45,7 @@ class NavbarComp extends React.Component {
     }
 }
 
+//gets what is currently being display and if logged in
 const mapStatetoProps = (state, ownProps) => {
     return {
         display: state.display,
@@ -50,6 +53,7 @@ const mapStatetoProps = (state, ownProps) => {
     }
 }
 
+//swap display and logout functions
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         clickNav: (display) => dispatch(clickNavFunct(display)),

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {signInFunct} from '../actions';
 
 
+//Sign In Page
+
 class SignInComp extends React.Component{
     constructor(props){
         super(props);
@@ -12,12 +14,14 @@ class SignInComp extends React.Component{
         }
         this.handleLogin = this.handleLogin.bind(this);
     }
+
+    //Checks if username and password are correct and gets user's data
     handleLogin() {
         this.props.signInFunct(this.state.username,this.state.password);
     }
     render() {
         return(
-            <div className="sign-swap">
+            <div className="sign-swap">{/* Sign in display */}
                 <div>
                     <h1>Sign In</h1>
                     <form className="sign-form" onSubmit={(e) => {
@@ -41,7 +45,7 @@ class SignInComp extends React.Component{
                         <button type="submit">Sign In</button>
                     </form>
                 </div>
-                <div className="swap">
+                <div className="swap">{/* Ask sign up display */}
                     <h1>Sign Up</h1>
                     <p>
                         Don't have an account? Click the sign up button below and create a new account. Our users are able to save their favorite
