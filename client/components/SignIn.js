@@ -19,10 +19,10 @@ class SignInComp extends React.Component{
     }
     render() {
         return(
-            <div>
+            <div className="sign-swap">
                 <div>
                     <h1>Sign In</h1>
-                    <form onSubmit={(e) => {
+                    <form className="sign-form" onSubmit={(e) => {
                         e.preventDefault();
                         console.log(this.state);
                     }}>
@@ -43,7 +43,7 @@ class SignInComp extends React.Component{
                         <button type="submit">Sign In</button>
                     </form>
                 </div>
-                <div>
+                <div className="swap">
                     <h1>Sign Up</h1>
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
                     <button onClick={() => this.props.handleSwap()}>Sign Up</button>

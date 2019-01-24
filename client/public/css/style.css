@@ -189,7 +189,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
     flex-wrap: nowrap;
     width: 100%;
     overflow: hidden;
-    overflow-x: hidden;
+    overflow-x: visible;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     scroll-behavior: smooth;
@@ -293,3 +293,22 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
 /* ----------------------------------------------------------------
 	Sign in page
 -----------------------------------------------------------------*/
+.sign-swap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.sign-form {
+    display: grid;
+    max-width: 300px;
+    margin: auto;
+}
+.sign-form input {
+    margin: 16px 0;
+}
+.sign-form button {
+    margin: 16px 0;
+}
