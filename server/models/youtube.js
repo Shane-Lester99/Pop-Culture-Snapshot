@@ -1,3 +1,5 @@
+// This module holds the db table for Youtube media objects
+
 const db = require("./db");
 const Sequelize = require('sequelize');
 

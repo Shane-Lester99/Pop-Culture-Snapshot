@@ -1,3 +1,5 @@
+// User table to create the table which holds user accounts
+
 const db = require("./db");
 const Sequelize = require('sequelize');
 

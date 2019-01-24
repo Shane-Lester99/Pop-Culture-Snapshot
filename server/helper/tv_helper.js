@@ -1,10 +1,11 @@
+// This module will allow for easy access to the api which gives
+// trending tv data. To get trending tv data in the form this
+// application uses, all that is needed is to import the TvApiHelper
+// object and to call callApiRetrieveData() on it
 
 const axios =  require('axios');
 
-
-
-//console.log(process.env.MOVIE_DATABASE_API);
-//console.log(process.env.YOUTUBE_API_KEY_LOCAL);
+// This will choose which environment the api secret is held in
 let apiKey;
 if (process.env.MOVIE_DATABASE_API_KEY_LOCAL) {
     console.log("LOCAL API KEY USED FOR TMDB: Tv");
@@ -19,7 +20,7 @@ if (process.env.MOVIE_DATABASE_API_KEY_LOCAL) {
 
 class TvApiHelper {
     constructor() {
-
+        // api params to construct the api call url
         this.apiParams = {
             base : "https://api.themoviedb.org/3/",
             category : "trending/",
@@ -55,23 +56,12 @@ class TvApiHelper {
                 };
                 tvList.push(tvObj);
             }
-            //console.log(tvList);
-            console.log("NO ERROR");
             return tvList;
         })
         .catch(function (error) {
-            console.log(error);
             return undefined;
         });
     }
 }
 
-/*const x = new TvApiHelper()
-
-x.callApiRetrieveData()
-.then( (data) => {
-    console.log(data);
-})
-*/
 module.exports = new TvApiHelper();
-

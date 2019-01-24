@@ -1,3 +1,5 @@
+// Table to hold associations of users favorite media objects
+
 const db = require("./db");
 const Sequelize = require('sequelize');
 
