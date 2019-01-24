@@ -76,8 +76,9 @@ export const signInFunct = (username,password) => dispatch => {
         .then( (res) => {
             if(res.status !== 404 )
                 dispatch(getUserDataFunct(username))
+            else
+                alert("Wrong Username and Password Combination")
         })
-        .catch( () => alert("Wrong Username and Password Combination"))
 }
 
 export const putFunct = (accountName, description,userPhoto,mediaObjs) => dispatch => {
@@ -118,7 +119,8 @@ export const signUpFunct = (username, password) => dispatch => {
     .then( (res) => {
         if(res.status !== 405)
             dispatch(getUserDataFunct(username))
+        else
+            alert("Username is currently in use")
     })
-    .catch( () => alert("Username is already in use"))
 }
 

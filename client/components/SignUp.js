@@ -47,7 +47,7 @@ class SignUpComp extends React.Component{
                 <div>
                     <h1>Sign In</h1>
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
-                    <button onClick={() => this.props.handleSwap()}>Sign In</button>
+                    <button onClick={() => this.props.handleSwap()}>Click Here to Sign In</button>
                 </div>
             </section>
         );

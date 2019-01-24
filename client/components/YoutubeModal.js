@@ -60,7 +60,7 @@ class YoutubeModalComp extends React.Component {
     return (
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
-          this.props.closeModel();
+          this.props.closeModal();
       }
         }>
         <div className="modal-content">
@@ -68,7 +68,7 @@ class YoutubeModalComp extends React.Component {
             {
               addRemove()
             }
-            <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
+            <span className="close" onClick={(e) => this.props.closeModal()}>&times;</span>
           </div>
           <div className="modal-body">
             <iframe src={path + this.props.modalData.vidId} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>

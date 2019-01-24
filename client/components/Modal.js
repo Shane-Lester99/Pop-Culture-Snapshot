@@ -64,7 +64,7 @@ class ModalComp extends React.Component {
     return (
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
-          this.props.closeModel();
+          this.props.closeModal();
       }
         }>
         <div className="modal-content">
@@ -72,7 +72,7 @@ class ModalComp extends React.Component {
             {
               addRemove()
             }
-            <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
+            <span className="close" onClick={(e) => this.props.closeModal()}>&times;</span>
           </div>
           <div className="modal-body">
             <img src={path+this.props.modalData.posterPath} alt=""></img>
