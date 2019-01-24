@@ -11,6 +11,7 @@ class YoutubeModalComp extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
+  //Checks if logged in and adds to account saved media if not saved already
   handleAdd(){
     if(this.props.loggedIn){
       let different = (this.props.userData.savedMedia.length === 0 ||this.props.userData.savedMedia.every(
@@ -35,6 +36,8 @@ class YoutubeModalComp extends React.Component {
       this.props.clickNavFunct('login');
     }
   }
+
+  //Has to be logged in to use and removes media from account
   handleRemove(){
     let data = this.props.userData.savedMedia.map( media => {
       if(media.id !== this.props.modalData.id || media.type !== this.props.modalData.type)
@@ -51,6 +54,7 @@ class YoutubeModalComp extends React.Component {
 
   render() {
     const path = 'https://www.youtube.com/embed/';
+    //Could only add in daily page and remove on account page
     const addRemove = () => {
       if(this.props.display === "daily")
         return (<span className="add" onClick={() => this.handleAdd()}>+</span>);
@@ -58,6 +62,7 @@ class YoutubeModalComp extends React.Component {
         return (<span className="add" onClick={() => this.handleRemove()}>-</span>)
     }
     return (
+      //Youtube modal with an embed video, video name, channel name and video description
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
           this.props.closeModal();
@@ -85,6 +90,7 @@ class YoutubeModalComp extends React.Component {
   }
 }
 
+//Get data for modal, where the modal is being displayed, user data and if logged in
 const mapStateToProps = (state, ownProps) => {
     return {
         modalData: state.modalData,
@@ -94,6 +100,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
+//Functions to close modal, save media and redirect on save or remove
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         closeModal: () => {

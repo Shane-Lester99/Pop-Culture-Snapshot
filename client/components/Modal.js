@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModalFunct, putFunct, clickNavFunct } from '../actions';
 import { connect } from 'react-redux';
 
+
+//Modal for tv and movie data
 class ModalComp extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,7 @@ class ModalComp extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
   }
 
+  //Adds the media to account page if logged in and not already added
   handleAdd(){
     if(this.props.loggedIn){
       let different = (this.props.userData.savedMedia.length === 0 || this.props.userData.savedMedia.every(
@@ -34,6 +37,7 @@ class ModalComp extends React.Component {
       this.props.clickNavFunct('login');
     }
   }
+  //The user should be logged in to be able to access account page and remove data from account
   handleRemove(){
     let data = this.props.userData.savedMedia.map( media => {
       if(media.id !== this.props.modalData.id || media.type !== this.props.modalData.type)
@@ -49,7 +53,8 @@ class ModalComp extends React.Component {
   }
 
   render() {
-    const path = 'http://image.tmdb.org/t/p/w185/';
+    const path = 'https://image.tmdb.org/t/p/w185/';
+    //Swaps between add and remove depending on if on daily page or account page
     const addRemove = () => {
       if(this.props.display === "daily")
         return (
@@ -70,11 +75,13 @@ class ModalComp extends React.Component {
         <div className="modal-content">
           <div className="modal-header">
             {
+              // + or - on the modal
               addRemove()
             }
             <span className="close" onClick={(e) => this.props.closeModal()}>&times;</span>
           </div>
           <div className="modal-body">
+            {/* Display the poster, title and a description */}
             <img src={path+this.props.modalData.posterPath} alt=""></img>
             <h2>{this.props.modalData.title}</h2>
             <p>{this.props.modalData.overview}</p>
@@ -88,6 +95,7 @@ class ModalComp extends React.Component {
   }
 }
 
+//Where modal is being displayed, what is being displayed, if logged in, user's data
 const mapStateToProps = (state, ownProps) => {
     return {
         modalData: state.modalData,
@@ -97,6 +105,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
+//Functions to close a modal, add or remove data from account, redirect
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         closeModal: () => {

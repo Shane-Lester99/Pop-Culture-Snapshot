@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 class TvComp extends React.Component{
     render() {
-        const path = 'http://image.tmdb.org/t/p/w185/';
+        const path = 'https://image.tmdb.org/t/p/w185/';
+        //Return array of tv objects
         const Tv = this.props.tvData.map(show =>
           <div className="snap-item" key={show.title}>
             <img
@@ -20,10 +21,12 @@ class TvComp extends React.Component{
               <div className="container">
 
                 <h3>Tv</h3>
+                {/* Side scrolling */}
                 <div className="snap-items snap-scroll">
                   <button className="scroll-btn r" onClick={(elem) => elem.target.parentNode.scrollBy(150, 0)}>{">"}</button>
                   <button className="scroll-btn l" onClick={(elem) => elem.target.parentNode.scrollBy(-150, 0)}>{"<"}</button>
                   {
+                    //Display all tv objects
                     Tv
                   }
                 </div>
@@ -34,12 +37,14 @@ class TvComp extends React.Component{
     }
 }
 
+//get tvdata 
 const mapStateToProps = (state, ownProps) => {
     return {
         tvData: state.data.tvData,
     }
 }
 
+//pass tv data to modal
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         clickBox: (display,payload) => {
