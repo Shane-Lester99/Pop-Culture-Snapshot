@@ -53,7 +53,7 @@ function checkTodaysData() {
     })
     // This will decide if we load the data or not after
     // we query our table to see if the daily data is there
-    const intervalId = setInterval(() => {
+    const intervalId = setInterval( () => {
         // Case 1: Data isnt loaded and we checked all tables
         if (!dataAlreadyLoaded && (tablesChecked === 3)) {
             loadTodaysData();
