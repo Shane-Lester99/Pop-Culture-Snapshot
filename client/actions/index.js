@@ -50,7 +50,12 @@ export const logOutFunct = () => {
 //Thunk
 
 export const getDataAsync = () => (dispatch) => {
-    let date = new Date(Date.now()-18000000).toISOString().split('T')[0];
+    let date = new Date(Date.now()-18000000);
+    date.setDate(date.getDate()-1).toISOString().split('T')[0];
+    console.log("date",date);
+    console.log("new Date",new Date());
+    console.log("Date.now",Date.now());
+
     return fetch(`/api/daily/${date}`)
         .then(res => {
             return res.json();
