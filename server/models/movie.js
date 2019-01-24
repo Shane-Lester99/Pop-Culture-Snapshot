@@ -1,3 +1,4 @@
+// Database Table for movie media objects
 const db = require("./db");
 const Sequelize = require('sequelize');
 
