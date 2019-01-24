@@ -24,8 +24,6 @@ componentDidMount () {
           return <Daily />
         case "login":
           return <Login />
-        case "youtube":
-          return <Youtube />
         case 'page':
           return <Page />
         default:

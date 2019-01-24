@@ -1,10 +1,13 @@
 import React from 'react';
 import { clickBoxFunct } from '../actions';
 import { connect } from 'react-redux';
+import Modal from './Modal';
+import YoutubeModal from './YoutubeModal';
 
 class PageComp extends React.Component{
     render() {
         const Media = this.props.userData.savedMedia.map( media =>{
+            const path = 'http://image.tmdb.org/t/p/w185/';
             if(media.type === "movie" || media.type === "tv"){
                 return(
                     <div className="snap-item" key={media.title}>

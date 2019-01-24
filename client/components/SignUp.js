@@ -41,13 +41,13 @@ class SignUpComp extends React.Component{
                             placeholder="Password"
                         >
                         </input>
-                        <button type="submit">Sign In</button>
+                        <button type="submit">Sign Up</button>
                     </form>
                 </div>
                 <div>
                     <h1>Sign In</h1>
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
-                    <button onClick={() => this.props.handleSwap()}>Sign Up</button>
+                    <button onClick={() => this.props.handleSwap()}>Sign In</button>
                 </div>
             </section>
         );

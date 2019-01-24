@@ -1,4 +1,4 @@
-import  { CLICKBOX, CLICKNAV, CLICKSUBMIT, CLOSEMODAL, GETDATA} from "../actions";
+import  { CLICKBOX, CLICKNAV, CLICKSUBMIT, CLOSEMODAL, GETDATA, LOGOUT} from "../actions";
 
 import data from './data';
 
@@ -52,6 +52,15 @@ export default (state = initialState, action) => {
         {},
         state,
         state.data = action.payload
+      )
+    case LOGOUT:
+      return Object.assign(
+        {},
+        state,
+        state.userData = {},
+        state.loggedIn = false,
+        state.userId = '',
+        state.display = 'daily'
       )
     default:
       return state;
