@@ -20,21 +20,21 @@ class SignUpComp extends React.Component{
     }
     render() {
         return(
-            <section>
+            <div className="sign-swap">
                 <div>
                     <h1>Sign Up</h1>
-                    <form onSubmit={(e) => {
+                    <form className="sign-form" onSubmit={(e) => {
                         e.preventDefault();
                         this.handleSignUp();
                     }}>
-                        <input type="text" 
+                        <input type="text"
                             onChange={(e) => {
                                 this.setState({username: e.target.value})
                             }}
                             placeholder="Username"
                         >
                         </input>
-                        <input type="password" 
+                        <input type="password"
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}
@@ -44,12 +44,12 @@ class SignUpComp extends React.Component{
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
-                <div>
+                <div className="swap">
                     <h1>Sign In</h1>
                     <p>Already have an account? Click the sign in button to go to the sign in page! </p>
                     <button onClick={() => this.props.handleSwap()}>Click Here to Sign In</button>
                 </div>
-            </section>
+            </div>
         );
     }
 }
@@ -64,8 +64,8 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         signUpFunct: (username,password) => {
             dispatch(signUpFunct(username,password))
-        } 
-        
+        }
+
     }
 }
 

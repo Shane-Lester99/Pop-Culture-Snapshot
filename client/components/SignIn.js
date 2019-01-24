@@ -17,21 +17,21 @@ class SignInComp extends React.Component{
     }
     render() {
         return(
-            <section>
+            <div className="sign-swap">
                 <div>
                     <h1>Sign In</h1>
-                    <form onSubmit={(e) => {
+                    <form className="sign-form" onSubmit={(e) => {
                         e.preventDefault();
                         this.handleLogin();
                     }}>
-                        <input type="text" 
+                        <input type="text"
                             onChange={(e) => {
                                 this.setState({username: e.target.value})
                             }}
                             placeholder="Username"
                         >
                         </input>
-                        <input type="password" 
+                        <input type="password"
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}
@@ -41,16 +41,16 @@ class SignInComp extends React.Component{
                         <button type="submit">Sign In</button>
                     </form>
                 </div>
-                <div>
+                <div className="swap">
                     <h1>Sign Up</h1>
                     <p>
                         Don't have an account? Click the sign up button below and create a new account. Our users are able to save their favorite
                         daily topics and view them later!
-                         
+
                     </p>
                     <button onClick={() => this.props.handleSwap()}>Click Here to Sign Up</button>
                 </div>
-            </section>
+            </div>
         );
     }
 }
@@ -66,7 +66,7 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
         signInFunct: (username, password) => {
             dispatch(signInFunct(username,password))
         }
-        
+
     }
 }
 

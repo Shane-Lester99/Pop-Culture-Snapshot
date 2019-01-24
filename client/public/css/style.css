@@ -1,8 +1,8 @@
 /* ----------------------------------------------------------------
 	Basic
 -----------------------------------------------------------------*/
-/* :active,
-:focus { outline: none !important; } */
+:active,
+:focus { outline: none !important; }
 
 
 /* ----------------------------------------------------------------
@@ -49,6 +49,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   display: inline-block;
   padding: 4px 8px;
   font-weight: 700;
+  color: #fff;
 }
 
 .site-wrapper {
@@ -90,6 +91,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   z-index: 1030;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
   background: #fff;
+  background-image: linear-gradient(to right, #79A7A8, #FF8984);
 }
 #header-wrap .container {
   display: flex;
@@ -126,7 +128,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   border-radius: 5px;
   /* background: #717589; */
   float: right;
-  color: #888;
+  color: #fff;
 }
 
 #primary-menu button {
@@ -187,6 +189,8 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   background: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
+  border-radius: 30px;
+  padding: 8px 13px;
 }
 .scroll-btn.l {
   left: 0;
@@ -202,7 +206,7 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
     flex-wrap: nowrap;
     width: 100%;
     overflow: hidden;
-    overflow-x: hidden;
+    overflow-x: visible;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     scroll-behavior: smooth;
@@ -218,9 +222,9 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
 .site-wrapper > section ~ section { padding-top: 0; }
 
 
-/* section:nth-child(2) {
-  background-color: #eee;
-} */
+section:nth-child(2) {
+  background-color: #EDF7F5;
+}
 
 /* ----------------------------------------------------------------
 	Modal
@@ -300,4 +304,48 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
 .modal-footer {
   padding: 2px 16px;
   color: white;
+}
+
+
+/* ----------------------------------------------------------------
+	Sign in page
+-----------------------------------------------------------------*/
+.sign-swap {
+  align-items: center;
+  display: grid;
+  height: 80vh;
+  text-align: center;
+  vertical-align: middle;
+}
+@media (min-width: 768px) {
+  .sign-swap {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 75vh;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+.sign-swap div {
+  padding: 0 30px;
+}
+
+.sign-form {
+    display: grid;
+    max-width: 400px;
+    margin: auto;
+}
+.sign-form input {
+    margin: 16px 0;
+    padding: 10px;
+    border-radius: 20px;
+    border: solid 1px #ccc;
+}
+.sign-form button {
+    margin: 16px 0;
+}
+button {
+  padding: 10px;
+  border-radius: 20px;
 }
