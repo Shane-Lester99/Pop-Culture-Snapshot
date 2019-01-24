@@ -182,7 +182,7 @@ router.put('/', (req, res, next) => {
 // Will create a new user account if the accountName doesnt already exist
 router.post('/', async (req, res, next) => { 
     let { accountName, userPhoto, description, password} = req.body;
-    accountName = accountName.toLowerCase();
+    accountName = accountName;
     try {   
         await UserTable.create({
             accountName,
