@@ -3,9 +3,17 @@
 // associated for that day. This route only has a get request for 
 // all the data available for a given day
 
-
 const router = require('express').Router();
 const { TvTable, MovieTable, YoutubeTable } = require('../models');
+
+const checkTodaysData = require('../initializer');
+
+router.get('/:someDate', async (req, res, next) => {
+    console.log("YEAHHHH MIDDLEWARE!");
+    await checkTodaysData();
+    next();
+});
+
 // Given API endpoint /api/daily/2019-01-22 will give us all the
 // media objects of that day
 router.get('/:someDate', async (req, res, next) => {
