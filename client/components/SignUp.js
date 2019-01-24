@@ -34,7 +34,7 @@ class SignUpComp extends React.Component{
                             placeholder="Username"
                         >
                         </input>
-                        <input type="text" 
+                        <input password="text" 
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}

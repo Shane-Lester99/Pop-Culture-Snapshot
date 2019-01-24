@@ -31,7 +31,7 @@ class SignInComp extends React.Component{
                             placeholder="Username"
                         >
                         </input>
-                        <input type="text" 
+                        <input type="password" 
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}
