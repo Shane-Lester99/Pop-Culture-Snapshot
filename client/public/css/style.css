@@ -161,7 +161,20 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   margin-left: 16px;
 }
 
+.youtube-link {
+  text-decoration: none;
+  color:black;
+}
 
+.media {
+  display:flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
+.page-title {
+  text-align: center;
+}
 
 
 

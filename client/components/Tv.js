@@ -10,7 +10,7 @@ class TvComp extends React.Component{
             <img
                 src={path+show.posterPath}
                 onClick={() => this.props.clickBox('tv',show)}
-                alt="Show Pic">
+                alt="Tv Pic">
             </img>
           </div>
         );

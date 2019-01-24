@@ -10,7 +10,7 @@ class YoutubeComp extends React.Component{
         <img
         src={video.thumbnail}
         onClick={() => this.props.clickBox('youtube',video)}
-        alt="Youtube Pic">
+        alt="Youtube pic">
         </img>
       </div>
   );

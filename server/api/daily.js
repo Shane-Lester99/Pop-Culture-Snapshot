@@ -8,16 +8,20 @@ const { TvTable, MovieTable, YoutubeTable } = require('../models');
 
 const checkTodaysData = require('../initializer');
 
-router.get('/:someDate', async (req, res, next) => {
-    console.log("Checking for daily data...");
-    await checkTodaysData();
-    next();
+router.get('/', async (req, res, next) => {
+    //console.log("Checking for daily data...");
+    await checkTodaysData()
+    setTimeout( () => {
+        next();
+    }, 3000);
+    //console.log("Done checking for data...");
 });
 
 // Given API endpoint /api/daily/2019-01-22 will give us all the
 // media objects of that day
-router.get('/:someDate', async (req, res, next) => { 
+router.get('/', async (req, res, next) => { 
     // This will query the data from the database for a particular day
+    console.log("Next request");
     let jsonReturn = {};
     // flagNum is the amount of media types we have. Currently we have
     // 3 (youtube, tv, movie). An interval will watch that variable until it hits
@@ -26,7 +30,7 @@ router.get('/:someDate', async (req, res, next) => {
     // This is the amount of media objects.
     const DATA_AMOUNT = 3;
     try {
-        var tvObjs = await TvTable.findAll({where : { "date" : req.params.someDate }  
+        var tvObjs = await TvTable.findAll({where : { "date" : new Date() }  
         })
         .then ((rows) => {
             jsonReturn.tvData = rows;
@@ -42,7 +46,7 @@ router.get('/:someDate', async (req, res, next) => {
         jsonReturn.tvData = [];
     }
     try {
-        var movieObjs = await MovieTable.findAll({where : { "date" : req.params.someDate }  
+        var movieObjs = await MovieTable.findAll({where : { "date" : new Date() }  
         })
         .then ((rows) => { 
             flagNum += 1;
@@ -59,7 +63,7 @@ router.get('/:someDate', async (req, res, next) => {
     }
 
     try {
-        var youtubeObjs = await YoutubeTable.findAll({where : { "date" : req.params.someDate }  
+        var youtubeObjs = await YoutubeTable.findAll({where : { "date" : new Date() }  
         })
         .then ((rows) => { 
             flagNum += 1;

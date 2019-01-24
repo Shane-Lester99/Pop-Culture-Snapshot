@@ -34,7 +34,7 @@ class SignUpComp extends React.Component{
                             placeholder="Username"
                         >
                         </input>
-                        <input type="text"
+                        <input type="password"
                             onChange={(e) => {
                                 this.setState({password: e.target.value})
                             }}
@@ -46,7 +46,7 @@ class SignUpComp extends React.Component{
                 </div>
                 <div className="swap">
                     <h1>Sign In</h1>
-                    <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
+                    <p>Already have an account? Click the sign in button to go to the sign in page! </p>
                     <button onClick={() => this.props.handleSwap()}>Click Here to Sign In</button>
                 </div>
             </div>

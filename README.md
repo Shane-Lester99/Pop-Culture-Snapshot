@@ -1,53 +1,27 @@
-# How to use
+# Pop Culture Snapshot
 
-$> node server/index.js
+- Fullstack react + redux + nodeJS + express + sequelize + postgres application
 
-# How to contact API endpoints from localhost:
+- Deployment, Backend, and application configuration built by Shane Lester
 
-- First run the 'how to use command'
+- Component development and react redux interface built by Jimmy Yuan and styled/ designed by David Ullauri
 
-$> node server/index.js
+- Built as part of the TTP CUNY2X bootcamp with first release on a 6 day strict deadline
 
-- Make sure it says success a bunch of times in a pretty much random order (thats async JS at work :) )
+## What is is?
 
-- If that is the case, it is working so far! You have the daily data loaded into the DB and ready to be queried
+- Application feeds daily data of pop culture trends in music, tv, movie, videos, and ideas in the form of media bubbles
+- These media bubbles give users a ‘snapshot’ of what is happening in pop culture on any given day
+- Users can save these media bubbles to their account to keep track of their favorite trends
+- Overall, this allows users to keep up with trends in popular culture
 
-- Now you must check the port. To do this scroll up to the top of the terminal (where you entered your command) and check the port number. It will be either 5000 or 3000
-
-- Say the port is 3000. Now go to postman (or wherever you are contacting the API endpoints from)
-
-## To get the daily data (assuming its jan 22nd):
-
-    - localhost:3000/api/daily/2019-01-22 via get request
-
-        - This will return all the tv and movie data (for now, pretend it returns all data)
-
-## To get the user data
-
-    - localhost:3000/api/user via get // This will return all the user data 
-    - localhost:3000/api/user via post
-
-        - In js body, have:
-
-            - {
-                "accountName": "Shane",
-                "description": "just writin some documentation",
-                "password": "insecure_password",
-                "userPhoto": somePhoto
-            }
-    - For now, please dont include the photo because the endpoint is ready to handle it. But feel free to include a string. If you leave it blank, it will be a default photo. THAT IS THE ONLY FIELD THAT CAN BE LEFT BLANK!
+## Why is it needed?
+- Trends change fast and no one place gives a high level overview of what is happening on any given day
+- Hard to keep track of daily trends without looking at lots of different sources
+- Media bubbles can be extended to any data that is available, giving users a larger and larger ‘snapshot’ of pop culture trends
+- Easily extendable to an API for developers for daily pop culture trends over long periods of time
 
 
-- Coming soon in next git push:
-    - get request for user will be able to pass a image successfully. Assume image can be png, jpg, or svg
-- After that, the next issue:
+## Where to access
 
-    - Put request to update the data for a user. Also can take in an array of ids and the type (say twitter) and store the media for retrieval later
-
-    - Get request will have the media objects returned that the user stored
-
-## IMPORTANT NOTE:
-- Currently the database deletes and recreates itself and recalls the API on each sync. The reason for this is so we dont have a messy database as we are testing the development and production database. Once the Heroku scheduler is added then we wont have to do that anymore :)
-
-
- 
+- Deployed on heroku at https://pop-culture-snapshot.herokuapp.com/ 
