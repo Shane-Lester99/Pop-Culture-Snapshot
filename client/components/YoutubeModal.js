@@ -1,24 +1,79 @@
 import React from 'react';
-import { closeModalFunct } from '../actions';
+import { closeModalFunct, putFunct, clickNavFunct } from '../actions';
 import { connect } from 'react-redux';
 
 class YoutubeModalComp extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  handleAdd(){
+    if(this.props.loggedIn){
+      let different = (this.props.userData.savedMedia.length === 0 ||this.props.userData.savedMedia.every(
+        media => media.type !== this.props.modalData.type || media.id !== this.props.modalData.id
+      ))
+      if(different){
+        let data = this.props.userData.savedMedia.map( (media) => {
+          return {type:media.type, id: media.id};
+        });
+        data.push({type:this.props.modalData.type, id:this.props.modalData.id});
+        this.props.closeModal();
+        this.props.putFunct(
+          this.props.userData.user.accountName,
+          this.props.userData.user.description,
+          this.props.userData.user.userPhoto,
+          data
+        )
+      }               
+    }
+    else{
+      this.props.closeModal();
+      this.props.clickNavFunct('login');
+    }
+  }
+  handleRemove(){
+    let data = this.props.userData.savedMedia.map( media => {
+      if(media.id !== this.props.modalData.id || media.type !== this.props.modalData.type)
+        return({type:media.type, id:media.id})
+    })
+    this.props.closeModal();
+    this.props.putFunct(
+      this.props.userData.user.accountName,
+      this.props.userData.user.description,
+      this.props.userData.user.userPhoto,
+      data
+    )
+  }
+
   render() {
     const path = 'https://www.youtube.com/embed/';
+    const addRemove = () => {
+      if(this.props.display === "daily")
+        return (<span className="add" onClick={() => this.handleAdd()}>+</span>);
+      else if(this.props.display === "page")
+        return (<span className="add" onClick={() => this.handleRemove()}>-</span>)
+    }
     return (
       <div id="myModal" className="modal" onClick={(e) => {
          if(e.target === e.currentTarget)
-          this.props.closeModel();
+          this.props.closeModal();
       }
         }>
         <div className="modal-content">
           <div className="modal-header">
-            <span className="add">+</span>
-            <span className="close" onClick={(e) => this.props.closeModel()}>&times;</span>
+            {
+              addRemove()
+            }
+            <span className="close" onClick={(e) => this.props.closeModal()}>&times;</span>
           </div>
           <div className="modal-body">
             <iframe src={path + this.props.modalData.vidId} height="400" width="100%" allowFullScreen frameBorder="0" ></iframe>
-            <h2>{this.props.modalData.title}</h2>
+            <a href={"https://www.youtube.com/watch?v="+this.props.modalData.vidId}>{this.props.modalData.title}</a>
+            <a href={"https://www.youtube.com/channel/"+this.props.modalData.channelId}>{this.props.modalData.channelTitle}</a>
             <p>{this.props.modalData.description}</p>
           </div>
           <div className="modal-footer">
@@ -33,13 +88,22 @@ class YoutubeModalComp extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         modalData: state.modalData,
+        display: state.display,
+        userData: state.userData,
+        loggedIn: state.loggedIn
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        closeModel: () => {
+        closeModal: () => {
             dispatch(closeModalFunct())
+        },
+        putFunct: (accountName,description,userPhoto,mediaObjs) => {
+          dispatch(putFunct(accountName,description,userPhoto,mediaObjs))
+        },
+        clickNavFunct: (display) => {
+          dispatch(clickNavFunct(display))
         }
     }
 }

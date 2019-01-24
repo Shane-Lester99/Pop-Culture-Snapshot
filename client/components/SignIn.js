@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {clickSubmitFunct} from '../actions';
+import {signInFunct} from '../actions';
 
 
 class SignInComp extends React.Component{
@@ -13,9 +13,7 @@ class SignInComp extends React.Component{
         this.handleLogin = this.handleLogin.bind(this);
     }
     handleLogin() {
-        //Api call to check is username and password matches
-        //this.props.clickSubmit(data.userId,data.userData)
-        //catch alert wrong username or pw
+        this.props.signInFunct(this.state.username,this.state.password);
     }
     render() {
         return(
@@ -24,7 +22,7 @@ class SignInComp extends React.Component{
                     <h1>Sign In</h1>
                     <form className="sign-form" onSubmit={(e) => {
                         e.preventDefault();
-                        console.log(this.state);
+                        this.handleLogin();
                     }}>
                         <input type="text"
                             onChange={(e) => {
@@ -46,7 +44,7 @@ class SignInComp extends React.Component{
                 <div className="swap">
                     <h1>Sign Up</h1>
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
-                    <button onClick={() => this.props.handleSwap()}>Sign Up</button>
+                    <button onClick={() => this.props.handleSwap()}>Click Here to Sign Up</button>
                 </div>
             </div>
         );
@@ -61,8 +59,8 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
-        clickSubmit: (userId,userData) => {
-            dispatch(clickSubmitFunct(userId,userData));
+        signInFunct: (username, password) => {
+            dispatch(signInFunct(username,password))
         }
 
     }

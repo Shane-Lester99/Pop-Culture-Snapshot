@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {clickSubmitFunct} from '../actions';
+import { signUpFunct} from '../actions';
 
 
 class SignUpComp extends React.Component{
@@ -9,14 +9,14 @@ class SignUpComp extends React.Component{
         this.state = {
             username:'',
             password:'',
-            description:'',
         }
         this.handleSignUp = this.handleSignUp.bind(this);
     }
     handleSignUp() {
-        //Api call to check is username and password matches
-        //this.props.clickSubmit(data.userId,data.userData)
-        //catch alert wrong username or pw
+        this.props.signUpFunct(
+            this.state.username,
+            this.state.password,
+        )
     }
     render() {
         return(
@@ -25,6 +25,7 @@ class SignUpComp extends React.Component{
                     <h1>Sign Up</h1>
                     <form className="sign-form" onSubmit={(e) => {
                         e.preventDefault();
+                        this.handleSignUp();
                     }}>
                         <input type="text"
                             onChange={(e) => {
@@ -40,13 +41,13 @@ class SignUpComp extends React.Component{
                             placeholder="Password"
                         >
                         </input>
-                        <button type="submit">Sign In</button>
+                        <button type="submit">Sign Up</button>
                     </form>
                 </div>
                 <div className="swap">
                     <h1>Sign In</h1>
                     <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
-                    <button onClick={() => this.props.handleSwap()}>Sign Up</button>
+                    <button onClick={() => this.props.handleSwap()}>Click Here to Sign In</button>
                 </div>
             </div>
         );
@@ -61,8 +62,8 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
-        clickSubmit: (userId,userData) => {
-            dispatch(clickSubmitFunct(userId,userData));
+        signUpFunct: (username,password) => {
+            dispatch(signUpFunct(username,password))
         }
 
     }

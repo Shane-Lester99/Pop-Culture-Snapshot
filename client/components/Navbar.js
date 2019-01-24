@@ -1,12 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { clickNavFunct } from '../actions';
+import { clickNavFunct, logOutFunct } from '../actions';
 
 
 class NavbarComp extends React.Component {
 
     render() {
-
+        const log = () => {
+            if(!this.props.loggedIn)
+                return(
+                    <button onClick={() => this.props.clickNav('login')}>Login</button>
+                );
+            else{
+                return(
+                    <button onClick={() => this.props.logOut()}>Logout</button>
+                );
+            }
+        }
         return(
             <div>
                 <header id="header-wrap">
@@ -14,7 +24,6 @@ class NavbarComp extends React.Component {
                     <span className="logo">PopSnapShot</span>
                     <ul>
                       <button onClick={() => this.props.clickNav('daily')}>Snap shot</button>
-                      <button onClick={() => this.props.clickNav('login')}>Login</button>
                       <button onClick={
                           () => {
                               if(this.props.loggedIn)
@@ -23,6 +32,9 @@ class NavbarComp extends React.Component {
                                   this.props.clickNav('login')
                           }
                       }>My Page</button>
+                      {
+                          log()
+                      }
                     </ul>
                   </nav>
                 </header>
@@ -40,9 +52,8 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
-        clickNav: (display) => {
-            dispatch(clickNavFunct(display))
-        }
+        clickNav: (display) => dispatch(clickNavFunct(display)),
+        logOut: () => dispatch(logOutFunct())
     }
 }
 

@@ -6,9 +6,15 @@ import Login from './Login';
 import Modal from './Modal';
 import Youtube from './Youtube';
 import YoutubeModal from './YoutubeModal';
+import { getDataAsync } from '../actions';
+import Page from './Page';
 
 
 class AppComp extends React.Component {
+
+componentDidMount () {
+    this.props.getDataAsync();
+  }
 
   render() {
     // save in a variable the result of a ternary expression
@@ -18,8 +24,8 @@ class AppComp extends React.Component {
           return <Daily />
         case "login":
           return <Login />
-        case "youtube":
-          return <Youtube />
+        case 'page':
+          return <Page />
         default:
           return <Daily />
       }
@@ -63,6 +69,14 @@ const mapStatetoProps = (state,ownProps) => {
   }
 }
 
-const App = connect(mapStatetoProps)(AppComp);
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    getDataAsync: () => {
+      dispatch(getDataAsync())
+    }
+  }
+}
+
+const App = connect(mapStatetoProps,mapDispatchtoProps)(AppComp);
 
 export default App;
