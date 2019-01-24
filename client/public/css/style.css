@@ -176,6 +176,8 @@ p, pre, ul, ol, dl, dd, blockquote, address, table, fieldset, form {
   background: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
+  border-radius: 30px;
+  padding: 8px 13px;
 }
 .scroll-btn.l {
   left: 0;
@@ -298,10 +300,19 @@ section:nth-child(2) {
 .sign-swap {
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 75vh;
+  height: 80vh;
   text-align: center;
   vertical-align: middle;
+}
+@media (min-width: 768px) {
+  .sign-swap {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 75vh;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 .sign-swap div {
   padding: 0 30px;
