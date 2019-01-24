@@ -6,17 +6,14 @@ import Login from './Login';
 import Modal from './Modal';
 import Youtube from './Youtube';
 import YoutubeModal from './YoutubeModal';
-import { getDataFunct } from '../actions';
+import { getDataAsync } from '../actions';
+import Page from './Page';
 
 
 class AppComp extends React.Component {
 
-  ComponentDidMount () {
-    let date = new Date().toISOString().split('T')[0];
-    fetch(`/api/daily/${date}`)
-      .then(res => {
-        this.props.getData(JSON.parse(res));
-      })
+componentDidMount () {
+    this.props.getDataAsync();
   }
 
   render() {
@@ -29,6 +26,8 @@ class AppComp extends React.Component {
           return <Login />
         case "youtube":
           return <Youtube />
+        case 'page':
+          return <Page />
         default:
           return <Daily />
       }
@@ -72,10 +71,10 @@ const mapStatetoProps = (state,ownProps) => {
   }
 }
 
-const mapDispatchtoProps = (Dispatch, ownProps) => {
+const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
-    getData: (payload) => {
-      dispatch(getDataFunct(payload))
+    getDataAsync: () => {
+      dispatch(getDataAsync())
     }
   }
 }

@@ -36,7 +36,8 @@ export default (state = initialState, action) => {
         state,
         state.userId = action.userId,
         state.userData = action.userData,
-        state.loggedIn = true
+        state.loggedIn = true,
+        state.display = 'page'
       )
 		case CLOSEMODAL:
 			return Object.assign(
