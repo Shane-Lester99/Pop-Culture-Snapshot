@@ -23,7 +23,7 @@ class NavbarComp extends React.Component {
                   <nav id="primary-menu">
                     <span className="logo">PopSnapShot</span>
                     <ul>
-                      <button onClick={() => this.props.clickNav('daily')}>Snap shot</button>
+                      <button onClick={() => this.props.clickNav('daily')}>Snapshot</button>
                       <button onClick={
                           () => {
                               if(this.props.loggedIn)
