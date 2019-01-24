@@ -1,10 +1,11 @@
+// This module will allow for easy access to the api which gives
+// trending movie data. To get trending movie data in the form this
+// application uses, all that is needed is to import the MovieApiHelper
+// object and to call callApiRetrieveData() on it
+
 const axios =  require('axios');
 
-
-
-//console.log(process.env.MOVIE_DATABASE_API);
-//console.log(process.env.YOUTUBE_API_KEY_LOCAL);
-
+// chooses the environment where the API key secret is kept
 let apiKey;
 if (process.env.MOVIE_DATABASE_API_KEY_LOCAL) {
     console.log("LOCAL API KEY USED FOR TMDB: Movie");
@@ -19,7 +20,7 @@ if (process.env.MOVIE_DATABASE_API_KEY_LOCAL) {
 
 class MovieApiHelper {
     constructor() {
-        
+        // used to construct the api call url
         this.apiParams = {
             base : "https://api.themoviedb.org/3/",
             category : "trending/",
@@ -56,23 +57,13 @@ class MovieApiHelper {
                     date: new Date()
                 };
                 movieList.push(newMovie);
-            }
-            //console.log(movieList);
+            } 
             return(movieList);
         })
-        .catch(function (error) {
-            //console.log(error);
+        .catch(function (error) {           
             return undefined;
         });
    }
 }
 
 module.exports =  new MovieApiHelper();
-
-//movieApiCallHelper(apiParams);
-
-//youtubeApiCallHelper(apiParams);
-
-//console.log(youtubeApiCallHelper(apiParams));
-
-

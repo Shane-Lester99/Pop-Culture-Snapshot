@@ -1,6 +1,11 @@
-require('dotenv').config();
+// This module will allow for easy access to the api which gives
+// trending youtube data. To get trending youtube data in the form this
+// application uses, all that is needed is to export the YoutubeApiHelper
+// object and to call callApiRetrieveData() on it
+
 const axios =  require('axios');
 
+// This will choose the correct environment where the API secret is
 let apiKey;
 if (process.env.YOUTUBE_API_KEY_LOCAL) {
     console.log("LOCAL API KEY USED FOR Youtube");
@@ -15,7 +20,7 @@ if (process.env.YOUTUBE_API_KEY_LOCAL) {
 
 class YoutubeApiHelper {
     constructor() {
-
+        //This will be assist in constructing the api call url
         this.apiParams = {
             base : "https://www.googleapis.com/youtube/v3/search?",
             part : "part=snippet",
@@ -26,6 +31,7 @@ class YoutubeApiHelper {
         }
     }
 
+    // Helper method to get the previous date from today
     getPrevDate() {
         const date = new Date();
         date.setDate(date.getDate() - 1);
@@ -63,35 +69,16 @@ class YoutubeApiHelper {
                     channelTitle,
                     date: new Date()
                 };
-                if (newYoutubeObj.vidId && youtubeObjList.length < 10) {
-                    console.log(newYoutubeObj);
+                if (newYoutubeObj.vidId && youtubeObjList.length < 10) {                 
                     youtubeObjList.push(newYoutubeObj);
                 }
             });
-//            console.log(youtubeObjList);
             return youtubeObjList;
         })
         .catch(function (error) {
-//            console.log(error);
             return undefined;
         });
     }
 }
 
-//Generate API strings:
-
-/*
-const x = new YoutubeApiHelper()
-
-x.callApiRetrieveData()
-.then( (data) => {
-    console.log(data);
-})
-*/
-
 module.exports  = new YoutubeApiHelper();
-//console.log(x.callApiRetrieveData());
-
-//console.log(youtubeApiCallHelper(apiParams));
-
-

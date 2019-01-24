@@ -72,10 +72,10 @@ function loadTodaysData() {
         tvData.forEach((tvObj) => {
             TvTable.create(tvObj)
             .then( () => {
-                console.log("SUCCESS");
+                console.log("TV Data Loaded In Successfully From Api");
             })
             .catch( (err) => {
-                console.log("ERROR");
+                console.log("Error In Loading In Tv Data From Api");
                 console.log(err);
             });
         });
@@ -87,10 +87,10 @@ function loadTodaysData() {
         movieData.forEach((movieObj) => {
             MovieTable.create(movieObj)
             .then( () => {
-                console.log("SUCCESS");
+                console.log("Movie Data Loaded In Successfully From Api");
             })
-            .catch( (err) => {
-                console.log("ERROR");
+            .catch( (err) => { 
+                console.log("Error In Loading In Movie Data From Api");
                 console.log(err);
             });
         });
@@ -100,11 +100,11 @@ function loadTodaysData() {
     .then( (youtubeData) => {
         youtubeData.forEach((youtubeObj) => {
             YoutubeTable.create(youtubeObj)
-            .then( () => {
-                console.log("SUCCESS");
+            .then( () => { 
+                console.log("Youtube Data Loaded In Successfully From APi");
             })
-            .catch( (err) => {
-                console.log("ERROR");
+            .catch( (err) => { 
+                console.log("Error In Loading In Youtube Data From Api");
                 console.log(err);
             });
         });

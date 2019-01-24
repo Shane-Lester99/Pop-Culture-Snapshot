@@ -1,11 +1,12 @@
-// /api/user endpoint with post, put, and get methods
+// This will allow us to create, update, and post user data. 
+// TODO: Add feature to delete user accounts
+// TODO: Add encrypted authentication
 
 const router = require('express').Router();
 const { UserTable, UserFavTrendsTable, MovieTable, YoutubeTable, TvTable } = require('../models');
 
 
-// This will be for our login.
-// TODO: add in legit authentication
+// This will be for our login. Currently insecure but okay for beta.
 router.get('/:user/:password', (req, res, next) => {
     UserTable.findOne({
         where : {
@@ -22,8 +23,9 @@ router.get('/:user/:password', (req, res, next) => {
     })
 });
 
-// Will return all the users as JSON without associated media objs
-// THIS IS JUST FOR TESTING!
+/* THIS ROUTE IS ONLY FOR TESTING PURPOSES. IT RETURNS ALL THE USER DATA.
+ * IT IS EXTREMELY INSECURE AND SHOULD ONLY BE USED IN TESTS.
+// Will return all the users as JSON without associated media objs.
 router.get('/', async (req, res, next) => {
     try {
         var users = await UserTable.findAll()
@@ -40,6 +42,7 @@ router.get('/', async (req, res, next) => {
         res.status(500).send(err);
     }
 });
+*/
 
 // Will be able to get user data given accountName. Includes
 // associated media objects
@@ -50,8 +53,7 @@ router.get('/:user', (req, res, next) => {
             accountName : req.params.user  
         }
     })
-    .then( (accountData) => {
-        console.log("Then 1");
+    .then( (accountData) => {      
         if (!accountData) {
             res.status(404).send();
         } 
@@ -61,20 +63,12 @@ router.get('/:user', (req, res, next) => {
                 accountName : req.params.user
             }
         })
-        .then( (mediaObjs) => {
-            console.log("Then 2");
+        .then( (mediaObjs) => {          
             jsonData.savedMedia = [];
             if (mediaObjs.length === 0) {
-                
                 res.status(200).send(jsonData);
                 next();
-            }
-            //console.log(typeof(mediaObjs), mediaObjs);
-            //res.status(200).send(mediaObjs);
-            //res.status(200).send(jsonData); 
-            //next();
-            
-            //let flag = 0;
+            } 
             const allItemsLength = mediaObjs.length;
             mediaObjs.forEach( (oneMediaObj) => {
                 let correctTable;
@@ -97,59 +91,40 @@ router.get('/:user', (req, res, next) => {
                         res.status(404).send("Music not yet implemented");
                         next();
                     break;
-                    default:
-                    console.log("ERR 1");
-                    res.status(500).send("Invalid media object.");
-                    next();
+                    default: 
+                        res.status(500).send("Invalid media object.");
+                        next();
                 }
-                //console.log(correctTable);
-                //res.status(200).send();
-                //next();
-                
                 correctTable.findOne({
                     where: {
                         id : oneMediaObj.mediaObjId
                     }
                 })
-                .then( (queriedMediaObj) => {
-                    console.log("then 3");
-                    //console.log(queriedMediaObj);
-                  
+                .then( (queriedMediaObj) => { 
                     jsonData.savedMedia.push(queriedMediaObj);
                     if (jsonData.savedMedia.length === allItemsLength) {
                         res.status(200).send(jsonData);
                         next();
                     }
-                    //console.log(jsonData) 
-                    //res.status(200).send();
-                    //next();
                 })
-                .catch( (err) => {
-                    console.log("ERR 2");
+                .catch( (err) => { 
                     res.status(500).send();
                     next();
                 });
-            });
-            //res.status(200).send(jsonData);
-           
+            }); 
         })
-        .catch( (error) => {
-            console.log("ERR 3");
+        .catch( (error) => { 
             res.status(500).send(error);
-        });
-        //res.status(200).send(data);
-        
+        }); 
     })
-    .catch( (error) => {
-        console.log("ERR 4");
+    .catch( (error) => { 
         res.status(500).send(error);
     });
     
 })
 
 // Updates the data of specific user 
-router.put('/', (req, res, next) => {
-    console.log(req.body);
+router.put('/', (req, res, next) => { 
     const { accountName, description, userPhoto,  mediaObjs } = req.body;
     var accountExists = true;
     UserTable.findOne( { 
@@ -159,12 +134,8 @@ router.put('/', (req, res, next) => {
     })
     .then( (row) => {
         if (row === null) {
-            //console.log("We hit null");
-            //res.status(404).send("not found");
-            accountExists = false;
-           // console.log(accountExists);
-        }
-        console.log('Then 1: Account exists: ' , accountExists); 
+            accountExists = false; 
+        }      
     })
     .then ( async () => {
         if (accountExists) {
@@ -173,8 +144,7 @@ router.put('/', (req, res, next) => {
                     accountName
                 }
             })
-        }
-        console.log("Then 2");
+        } 
     })
     .then (async () => {
         if (accountExists) {
@@ -187,12 +157,9 @@ router.put('/', (req, res, next) => {
                     accountName
                 }
             });
-        }
-        console.log("then 3");
+        } 
     })
-    .then ( () => {
-
-        //console.log(accountExists);
+    .then ( () => { 
         if (accountExists) {
             mediaObjs.forEach( async (mediaItem) => {
                 const newItem = {
@@ -205,19 +172,17 @@ router.put('/', (req, res, next) => {
             res.status(204).send();
         } else {
             res.status(404).send();
-        }
-        console.log("then 4");
+        } 
     })
     .catch( (err) => {
-        console.log("error");
+       res.status(500).send(); 
     })
 })
 
-router.post('/', async (req, res, next) => {
-    //console.log(req.body);
-    
+// Will create a new user account if the accountName doesnt already exist
+router.post('/', async (req, res, next) => { 
     let { accountName, userPhoto, description, password} = req.body;
-    //console.log(firstName, lastName, email, imageUrl, gpa);
+    accountName = accountName.toLowerCase();
     try {   
         await UserTable.create({
             accountName,
@@ -226,14 +191,17 @@ router.post('/', async (req, res, next) => {
             password
         })
         .then( () => {
-            res.status(200).send("Success");
+            res.status(200).send();
+            next();
          })
         .catch( (err) => {
-            res.status(405).send("Request rejected");
+            res.status(405).send();
+            next();
          });
     }
     catch(err) {
-        res.status(500).send(err);
+        res.status(500).send();
+        next();
     }
 });
 
