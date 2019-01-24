@@ -9,7 +9,7 @@ class PageComp extends React.Component{
     render() {
         //Return array of all media data
         const Media = this.props.userData.savedMedia.map( media =>{
-            const path = 'http://image.tmdb.org/t/p/w185/';
+            const path = 'https://image.tmdb.org/t/p/w185/';
             if(media.type === "movie" || media.type === "tv"){
                 return(
                     <div className="snap-item" key={media.title}>
