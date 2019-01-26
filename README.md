@@ -8,7 +8,7 @@
 
 - Built as part of the TTP CUNY2X bootcamp with first release on a 6 day strict deadline
 
-## What is is?
+## What is it?
 
 - Application feeds daily data of pop culture trends in music, tv, movie, videos, and ideas in the form of media bubbles
 - These media bubbles give users a ‘snapshot’ of what is happening in pop culture on any given day
