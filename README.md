@@ -4,7 +4,7 @@
 
 - Deployment, Backend, and application configuration built by Shane Lester
 
-- Component development and react redux interface built by Jimmy Yuan and styled/ designed by David Ullauri
+- Component development and react redux interface built by Jimmy Yuan and styled/ designed by David Ullauri. Links to their github can be found under contributors.
 
 - Built as part of the TTP CUNY2X bootcamp with first release on a 6 day strict deadline
 
